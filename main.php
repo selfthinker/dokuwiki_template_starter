@@ -82,6 +82,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
                     <ul>
                         <?php
                             tpl_action('recent', 1, 'li');
+                            tpl_action('media', 1, 'li');
                             tpl_action('index', 1, 'li');
                         ?>
                     </ul>
