@@ -63,20 +63,21 @@
 /* media option wizard (opens when inserting media in the media popup)
 ********************************************************************/
 
+#media__popup {
+    /* for backwards compatibility (not needed since Rincewind) */
+    display: none;
+}
+
 #media__popup_content p {
     margin: 0 0 .5em;
 }
 
 #media__popup_content label {
-    float: left;
-    width: 9em;
+    margin-right: .5em;
+    cursor: default;
 }
 
 #media__popup_content .button {
     margin-right: 1px;
     cursor: pointer;
-}
-
-#media__popup_content input.button {
-    margin-left: 9em;
 }
