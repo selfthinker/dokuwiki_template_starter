@@ -8,6 +8,7 @@
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
+@require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -20,7 +21,9 @@ if (!defined('DOKU_INC')) die();
         [<?php echo strip_tags($conf['title'])?>]
     </title>
     <?php tpl_metaheaders()?>
-    <link rel="shortcut icon" href="<?php echo ml('favicon.ico') ?>" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
+    <?php _tpl_include('meta.html') ?>
 </head>
 
 <body>
@@ -77,7 +80,7 @@ if (!defined('DOKU_INC')) die();
                 <?php
                     $imgNS = getNS($IMG);
                     $authNS = auth_quickaclcheck("$imgNS:*");
-                    if ($authNS >= AUTH_UPLOAD) {
+                    if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
                         $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
                         echo '<a href="'.$mmURL.'">'.$lang['img_manager'].'</a><br />';
                     }
