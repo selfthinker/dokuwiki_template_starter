@@ -128,6 +128,14 @@ function _tpl_getFavicon($abs=false, $fileName='favicon.ico') {
     return DOKU_TPL.'images/'.$fileName;
 }
 
+/* use core function if available, otherwise the custom one */
+if (!function_exists('tpl_getFavicon')) {
+    function tpl_getFavicon($abs=false, $fileName='favicon.ico'){
+        _tpl_getFavicon($abs, $fileName);
+    }
+}
+
+
 /**
  * Returns <link> tag for various icon types (favicon|mobile|generic)
  *
@@ -154,6 +162,13 @@ function _tpl_favicon($types=array('favicon')) {
     }
 
     return $return;
+}
+
+/* use core function if available, otherwise the custom one */
+if (!function_exists('tpl_favicon')) {
+    function tpl_favicon($types=array('favicon')){
+        _tpl_favicon($types);
+    }
 }
 
 
