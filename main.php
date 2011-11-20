@@ -19,7 +19,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
     <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
     <?php tpl_metaheaders() ?>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="shortcut icon" href="<?php echo _tpl_getFavicon() /* DW versions > 2010-11-12 can use the core function tpl_getFavicon() */ ?>" />
+    <?php echo _tpl_favicon(array('favicon', 'mobile')) /* DW versions > 2011-07-31 can use the core function tpl_favicon() */ ?>
     <?php _tpl_include('meta.html') ?>
 </head>
 

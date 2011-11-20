@@ -110,17 +110,52 @@ function _tpl_action($type,$link=0,$wrapper=0) {
 }
 
 /**
- * Use favicon.ico from data/media root directory if it exists, otherwise use
+ * Returns icon from data/media root directory if it exists, otherwise
  * the one in the template's image directory.
- * DW versions > 2010-11-12 can use the core function tpl_getFavicon()
  *
+ * @param  bool $abs        - if to use absolute URL
+ * @param  string $fileName - file name of icon
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_getFavicon() {
-    if (file_exists(mediaFN('favicon.ico')))
-        return ml('favicon.ico');
-    return DOKU_TPL.'images/favicon.ico';
+function _tpl_getFavicon($abs=false, $fileName='favicon.ico') {
+    if (file_exists(mediaFN($fileName))) {
+        return ml($fileName, '', true, '', $abs);
+    }
+
+    if($abs) {
+        return DOKU_URL.substr(DOKU_TPL.'images/'.$fileName, strlen(DOKU_REL));
+    }
+    return DOKU_TPL.'images/'.$fileName;
 }
+
+/**
+ * Returns <link> tag for various icon types (favicon|mobile|generic)
+ *
+ * @param  array $types - list of icon types to display (favicon|mobile|generic)
+ * @author Anika Henke <anika@selfthinker.org>
+ */
+function _tpl_favicon($types=array('favicon')) {
+
+    $return = '';
+
+    foreach ($types as $type) {
+        switch($type) {
+            case 'favicon':
+                $return .= '<link rel="shortcut icon" href="'.tpl_getFavicon().'" />'.NL;
+                break;
+            case 'mobile':
+                $return .= '<link rel="apple-touch-icon" href="'.tpl_getFavicon(false, 'apple-touch-icon.png').'" />'.NL;
+                break;
+            case 'generic':
+                // ideal world solution, which doesn't work in any browser yet
+                $return .= '<link rel="icon" href="'.tpl_getFavicon(false, 'icon.svg').'" type="image/svg+xml" />'.NL;
+                break;
+        }
+    }
+
+    return $return;
+}
+
 
 /**
  * Include additional html file from conf directory if it exists, otherwise use
