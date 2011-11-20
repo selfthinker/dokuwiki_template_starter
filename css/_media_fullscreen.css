@@ -1,12 +1,21 @@
+/**
+ * This file provides the styles for the fullscreen media manager
+ * (?do=media).
+ *
+ * What most templates would probably need to change (depending on
+ * their site width) are the 4 min-width's (search for @change).
+ */
 
-/*____________ Layout ____________*/
+
+/*____________ structure ____________*/
 
 #mediamanager__page h1 {
     margin: 0 0 .5em;
 }
 
 #mediamanager__page {
-    min-width: 800px;
+    /* min-width must be summary of all 3 panels' min-widths */
+    min-width: 50em; /* @change */
     width: 100%;
     text-align: left;
 }
@@ -17,15 +26,15 @@
 
 #mediamanager__page .namespaces {
     width: 20%;
-    min-width: 160px;
+    min-width: 10em; /* @change */
 }
 #mediamanager__page .filelist {
     width: 50%;
-    min-width: 400px;
+    min-width: 25em; /* @change */
 }
 #mediamanager__page .file {
     width: 30%;
-    min-width: 240px;
+    min-width: 15em; /* @change */
 }
 
 #mediamanager__page .panelHeader {
@@ -59,12 +68,21 @@
     background-color: __background_alt__;
 }
 
+
 #mediamanager__page dd {
     margin: 0;
 }
 
+#mediamanager__page .panelHeader h3 {
+    float: left;
+    font-weight: normal;
+    font-size: 1em;
+    padding: 0;
+    margin: 0 0 3px;
+}
 
-/*____________ Namespaces tree ____________*/
+
+/*____________ namespaces panel ____________*/
 
 #mediamanager__page .namespaces h2 {
     font-size: 1em;
@@ -101,15 +119,10 @@
     font-weight: bold;
 }
 
-/*____________ Panel header ____________*/
 
-#mediamanager__page .panelHeader h3 {
-    float: left;
-    font-weight: normal;
-    font-size: 1em;
-    padding: 0;
-    margin: 0 0 3px;
-}
+/*____________ file list panel ____________*/
+
+/* file list header */
 
 #mediamanager__page .panelHeader form.options {
     float: right;
@@ -146,7 +159,7 @@
     line-height: 1;
 }
 
-/*____________ File list ____________*/
+/* file list content */
 
 #mediamanager__page .filelist ul {
     padding: 0;
@@ -171,7 +184,7 @@
     display: inline;
 }
 
-/* thumbs */
+/* file list as thumbs */
 
 #mediamanager__page .filelist .thumbs li {
     width: 100px;
@@ -223,7 +236,7 @@
     white-space: normal;
 }
 
-/* rows */
+/* file list as rows */
 
 #mediamanager__page .filelist .rows li {
     list-style: none;
@@ -283,7 +296,7 @@
     white-space: normal;
 }
 
-/*____________ Upload panel ____________*/
+/* upload form */
 
 #mediamanager__page div.upload {
     padding-bottom: 0.5em;
@@ -294,11 +307,12 @@
     padding-bottom: 0.5em;
 }
 
-/*____________ File preview ____________*/
+/*____________ file panel ____________*/
 
 #mediamanager__page .file ul.actions {
     text-align: center;
     margin: 0 0 5px;
+    padding: 0;
     list-style: none;
 }
 #mediamanager__page .file ul.actions li {
@@ -328,7 +342,7 @@
 }
 
 
-/*____________ Meta data edit form ____________*/
+/* file meta data edit form */
 
 #mediamanager__page form.meta div.row {
     margin-bottom: 5px;
@@ -353,7 +367,7 @@
     max-width: 95%;
 }
 
-/*____________ Revisions form ____________*/
+/* file revisions form */
 
 #mediamanager__page #page__revisions ul {
     margin-left: 10px;
@@ -372,7 +386,7 @@
     top: 1px;
 }
 
-/* File diff */
+/* file diff view */
 
 #mediamanager__diff table {
     table-layout: fixed;
@@ -407,7 +421,7 @@
     font-weight: normal;
 }
 
-/* Image diff */
+/* image diff views */
 
 #mediamanager__page .file form.diffView {
     margin-bottom: 10px;

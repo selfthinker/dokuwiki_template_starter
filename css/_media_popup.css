@@ -1,5 +1,5 @@
 /**
- * This file provides styles for the media manager
+ * This file provides styles for the media manager popup
  * (mediamanager.php).
  */
 
@@ -161,6 +161,7 @@ html.popup {
 }
 #media__content div.detail div.thumb a {
     display: block;
+    cursor: pointer;
 }
 #media__content div.detail p {
     margin-bottom: 0;
