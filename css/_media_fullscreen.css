@@ -317,6 +317,7 @@
 }
 #mediamanager__page .file ul.actions li {
     display: inline;
+    margin: 0;
 }
 
 #mediamanager__page .file div.image {
