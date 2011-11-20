@@ -1,7 +1,7 @@
 ﻿base     starter
 author   Anika Henke
 email    anika@selfthinker.org
-date     2011-02-20
+date     2011-11-20
 name     Starter Template
 desc     The template that gets you started
 url      http://www.dokuwiki.org/template:starter
