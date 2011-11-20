@@ -302,11 +302,6 @@
     padding-bottom: 0.5em;
 }
 
-#media__content #mediamanager__uploader {
-    border-bottom: 1px solid __border__;
-    padding-bottom: 0.5em;
-}
-
 /*____________ file panel ____________*/
 
 #mediamanager__page .file ul.actions {

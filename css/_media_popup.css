@@ -93,26 +93,11 @@ html.popup {
     margin-bottom: .5em;
 }
 
-#media__content form#dw__upload,
-#media__content div#dw__flashupload {
-    display: block;
-    border-bottom: solid 1px __border__;
-    padding-bottom: 1em;
+#mediamanager__uploader {
     margin-bottom: 1em;
 }
-#media__content form#dw__upload p {
+#mediamanager__uploader p {
     margin-bottom: .5em;
-}
-
-#media__content form#dw__upload label {
-}
-#media__content form#dw__upload label.check {
-}
-#media__content form#dw__upload input.check {
-}
-#media__content form#dw__upload input.edit {
-}
-#media__content form#dw__upload img {
 }
 
 /*____________ file list ____________*/
