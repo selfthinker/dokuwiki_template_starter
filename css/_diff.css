@@ -45,11 +45,11 @@
 .dokuwiki table.diff td.diff-blockheader {
     font-weight: bold;
 }
-.dokuwiki table.diff td.diff-addedline {
+.dokuwiki table.diff .diff-addedline {
     background-color: #cfc;
     color: inherit;
 }
-.dokuwiki table.diff td.diff-deletedline {
+.dokuwiki table.diff .diff-deletedline {
     background-color: #fdd;
     color: inherit;
 }
