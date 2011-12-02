@@ -248,7 +248,7 @@ option   { font-style: normal; font-weight: normal; }
 /*____________ general classes ____________*/
 
 div.clearer {
-    /* additional to what's already in lib/styles/style.css: */
+    /* additional to what's already in DokuWiki's lib/styles/all.css: */
     font-size: 1px;
     visibility: hidden;
 }
