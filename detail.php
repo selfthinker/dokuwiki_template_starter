@@ -2,8 +2,9 @@
 /**
  * DokuWiki Image Detail Page
  *
- * @author Andreas Gohr <andi@splitbrain.org>
- * @author Anika Henke <anika@selfthinker.org>
+ * @author   Andreas Gohr <andi@splitbrain.org>
+ * @author   Anika Henke <anika@selfthinker.org>
+ * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
 // must be run from within DokuWiki
