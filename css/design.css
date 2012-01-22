@@ -217,6 +217,15 @@
     line-height: 1.4;
 }
 
+/* to style button-like div in _fileuploader.css to look like other buttons,
+   please add '.qq-upload-button' to the according styles (which don't really exist in this template) */
+.qq-upload-button {
+    border: 1px solid __border__;
+    background-color: __background_alt__;
+    padding: 0.125em 0.4em;
+}
+
+
 /*____________ JS popup ____________*/
 
 .JSpopup {
