@@ -164,6 +164,11 @@
     line-height: 1.2;
 }
 
+#dokuwiki__aside .pad {
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
 /* make sidebar more condensed */
 
 #dokuwiki__aside h1 { margin-bottom: .222em; }
@@ -190,6 +195,8 @@
 ********************************************************************/
 
 .dokuwiki .page {
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 #mediamanager__page h2,
