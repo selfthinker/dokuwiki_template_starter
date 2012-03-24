@@ -1,5 +1,5 @@
 
-/* TODO */
+/* TODO: this file is not up to the best standards and will be fixed after an overhaul of the form code */
 
 /**
  * This file provides styles for forms in general and specifically
@@ -65,18 +65,18 @@
  * Styles for the subscription page
  */
 
-form#subscribe__form {
+#subscribe__form {
     display: block;
     width: 400px;
     text-align: center;
 }
 
-form#subscribe__form fieldset {
+#subscribe__form fieldset {
     text-align: left;
     margin: 0.5em 0;
 }
 
-form#subscribe__form label {
+#subscribe__form label {
     display: block;
     margin: 0 0.5em 0.5em;
 }
