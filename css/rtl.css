@@ -13,18 +13,26 @@ th {
     text-align: right;
 }
 
-ul, ol {
+ul,
+ol {
     padding: 0 1.5em 0 0;
 }
-li, dd {
+li,
+dd {
     margin: 0 1.5em 0 0;
 }
 blockquote {
     border-width: 0 .25em 0 0;
 }
 
-h1, h2, h3, h4, h5, h6,
-caption, legend {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+caption,
+legend {
     clear: right;
 }
 
@@ -82,16 +90,46 @@ caption, legend {
 /*____________ content ____________*/
 
 /* section indenting
-.dokuwiki .page h1 {margin-left: 0; margin-right: 0;}
-.dokuwiki .page h2 {margin-left: 0; margin-right: .666em;}
-.dokuwiki .page h3 {margin-left: 0; margin-right: 1.776em;}
-.dokuwiki .page h4 {margin-left: 0; margin-right: 3em;}
-.dokuwiki .page h5 {margin-left: 0; margin-right: 4.5712em;}
-.dokuwiki .page div.level1 {margin-left: 0; margin-right: 0;}
-.dokuwiki .page div.level2 {margin-left: 0; margin-right: 1em;}
-.dokuwiki .page div.level3 {margin-left: 0; margin-right: 2em;}
-.dokuwiki .page div.level4 {margin-left: 0; margin-right: 3em;}
-.dokuwiki .page div.level5 {margin-left: 0; margin-right: 4em;}
+.dokuwiki .page h1 {
+    margin-left: 0;
+    margin-right: 0;
+}
+.dokuwiki .page div.level1 {
+    margin-left: 0;
+    margin-right: 0;
+}
+.dokuwiki .page h2 {
+    margin-left: 0;
+    margin-right: .666em;
+}
+.dokuwiki .page div.level2 {
+    margin-left: 0;
+    margin-right: 1em;
+}
+.dokuwiki .page h3 {
+    margin-left: 0;
+    margin-right: 1.776em;
+}
+.dokuwiki .page div.level3 {
+    margin-left: 0;
+    margin-right: 2em;
+}
+.dokuwiki .page h4 {
+    margin-left: 0;
+    margin-right: 3em;
+}
+.dokuwiki .page div.level4 {
+    margin-left: 0;
+    margin-right: 3em;
+}
+.dokuwiki .page h5 {
+    margin-left: 0;
+    margin-right: 4.5712em;
+}
+.dokuwiki .page div.level5 {
+    margin-left: 0;
+    margin-right: 4em;
+}
 */
 
 .dokuwiki dl.code dt,
