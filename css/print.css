@@ -82,17 +82,17 @@ a.mail:after {
     border-width: 0;
     vertical-align: middle;
 }
+.dokuwiki img.media {
+    margin: .2em 0;
+}
 .dokuwiki img.medialeft {
-    margin: .5em 1.5em .5em 0;
-    float: left;
+    margin: .2em 1.5em .2em 0;
 }
 .dokuwiki img.mediaright {
-    margin: .5em 0 .5em 1.5em;
-    float: right;
+    margin: .2em 0 .2em 1.5em;
 }
 .dokuwiki img.mediacenter {
-    margin: .5em auto;
-    display: block;
+    margin: .2em auto;
 }
 
 /* align table cells */
