@@ -12,12 +12,12 @@ body {
     max-width: __site_width__;
     padding: 1.4em 1em;
 }
-#dokuwiki__site .site {
+#dokuwiki__site > .site {
 }
 
 #dokuwiki__header {
 }
-#dokuwiki__header .pad {
+#dokuwiki__header > .pad {
 }
     #dokuwiki__header .headings {
         float: left;
@@ -51,7 +51,7 @@ body {
         position: relative;
         display: block;
     }
-    #dokuwiki__aside .pad {
+    #dokuwiki__aside > .pad {
         margin: 0 1.5em 0 0;
     }
 
@@ -61,12 +61,12 @@ body {
         margin-left: -__sidebar_width__;
         width: 100%;
     }
-    .mode_show #dokuwiki__content .pad {
+    .mode_show #dokuwiki__content > .pad {
         margin-left: __sidebar_width__;
     }
 
 #dokuwiki__footer {
     clear: both;
 }
-#dokuwiki__footer .pad {
+#dokuwiki__footer > .pad {
 }

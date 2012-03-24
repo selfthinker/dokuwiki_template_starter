@@ -164,7 +164,7 @@
     line-height: 1.2;
 }
 
-#dokuwiki__aside .pad {
+#dokuwiki__aside > .pad {
     overflow: hidden;
     word-wrap: break-word;
 }

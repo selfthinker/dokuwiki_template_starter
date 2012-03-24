@@ -46,7 +46,7 @@ caption, legend {
 .mode_show #dokuwiki__aside {
     float: right;
 }
-#dokuwiki__aside .pad {
+#dokuwiki__aside > .pad {
     margin: 0 0 0 1.5em;
 }
 
@@ -55,7 +55,7 @@ caption, legend {
     margin-left: 0;
     margin-right: -__sidebar_width__;
 }
-.mode_show #dokuwiki__content .pad {
+.mode_show #dokuwiki__content > .pad {
     margin-left: 0;
     margin-right: __sidebar_width__;
 }
