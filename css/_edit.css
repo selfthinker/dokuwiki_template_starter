@@ -151,9 +151,3 @@ div.picker button.toolbutton {
     border: solid __background_alt__;
     border-width: 0 .5em;
 }
-[dir=rtl] .dokuwiki div.section_highlight {
-    margin: -3em -1.5em -.01em 0;
-    padding: 3em 1em .01em 0;
-    border-left-width: 0;
-    border-right: .5em solid __background_alt__;
-}
