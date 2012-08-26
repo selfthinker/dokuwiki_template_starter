@@ -25,7 +25,7 @@ if (!defined('DOKU_INC')) die();
     <?php tpl_metaheaders()?>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php _tpl_include('meta.html') ?>
+    <?php tpl_includeFile('meta.html') ?>
 </head>
 
 <body>

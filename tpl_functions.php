@@ -187,3 +187,10 @@ function _tpl_include($fn) {
     else if (file_exists($tplFile))
         include($tplFile);
 }
+
+/* use core function if available, otherwise the custom one */
+if (!function_exists('tpl_includeFile')) {
+    function tpl_includeFile($fn){
+        _tpl_include($fn);
+    }
+}

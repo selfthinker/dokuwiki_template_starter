@@ -22,7 +22,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
     <?php tpl_metaheaders() ?>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php _tpl_include('meta.html') ?>
+    <?php tpl_includeFile('meta.html') ?>
 </head>
 
 <body>
@@ -37,7 +37,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
     <div id="dokuwiki__site"><div id="dokuwiki__top"
         class="dokuwiki site mode_<?php echo $ACT ?>">
         <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
-        <?php _tpl_include('header.html') ?>
+        <?php tpl_includeFile('header.html') ?>
 
         <!-- ********** HEADER ********** -->
         <div id="dokuwiki__header"><div class="pad">
@@ -120,7 +120,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content"><div class="pad">
                 <?php tpl_flush() /* flush the output buffer */ ?>
-                <?php _tpl_include('pageheader.html') ?>
+                <?php tpl_includeFile('pageheader.html') ?>
 
                 <div class="page">
                     <!-- wikipage start -->
@@ -130,7 +130,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
                 </div>
 
                 <?php tpl_flush() ?>
-                <?php _tpl_include('pagefooter.html') ?>
+                <?php tpl_includeFile('pagefooter.html') ?>
             </div></div><!-- /content -->
 
             <div class="clearer"></div>
@@ -161,7 +161,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
             <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
         </div></div><!-- /footer -->
 
-        <?php _tpl_include('footer.html') ?>
+        <?php tpl_includeFile('footer.html') ?>
     </div></div><!-- /site -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
