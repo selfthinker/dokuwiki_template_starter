@@ -16,7 +16,7 @@ body {
 .a11y,
 div.notify, div.info, div.success, div.error,
 #dokuwiki__header .tools, #dokuwiki__aside,
-.dokuwiki .breadcrumbs, .dokuwiki .toc, .dokuwiki .secedit,
+.dokuwiki .breadcrumbs, .dokuwiki .toc, #dw__toc, .dokuwiki .secedit,
 #dokuwiki__pagetools, #dokuwiki__footer {
     display: none;
 }
