@@ -6,18 +6,21 @@
 /* edit view
 ********************************************************************/
 
+.dokuwiki div.editBox {
+}
+
 /*____________ toolbar ____________*/
 
 .dokuwiki div.toolbar {
     margin-bottom: .5em;
     overflow: hidden;
 }
-.dokuwiki div.toolbar #draft__status {
+#draft__status {
     float: right;
     color: __text_alt__;
     background-color: inherit;
 }
-.dokuwiki div.toolbar #tool__bar {
+#tool__bar {
     float: left;
 }
 
@@ -54,42 +57,50 @@ div.picker button.toolbutton {
 
 /*____________ below the textarea ____________*/
 
-.dokuwiki #wiki__editbar {
+.dokuwiki #wiki__editbar, /* old, until 2012-01-25 */
+.dokuwiki div.editBar /* new */ {
     overflow: hidden;
     margin-bottom: .5em;
 }
 
 /* size and wrap controls */
-.dokuwiki #wiki__editbar #size__ctl {
+#size__ctl {
     float: right;
 }
-.dokuwiki #wiki__editbar #size__ctl img {
+#size__ctl img {
     cursor: pointer;
 }
 
 /* edit buttons */
-.dokuwiki #wiki__editbar .editButtons {
+.dokuwiki #wiki__editbar .editButtons, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .editButtons /* new */ {
     display: inline;
     margin-right: 1em;
 }
-.dokuwiki #wiki__editbar .editButtons input {
+.dokuwiki #wiki__editbar .editButtons input, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .editButtons input /* new */ {
 }
 
 /* summary input and minor changes checkbox */
-.dokuwiki #wiki__editbar .summary {
+.dokuwiki #wiki__editbar .summary, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .summary /* new */ {
     display: inline;
 }
-.dokuwiki #wiki__editbar .summary label {
+.dokuwiki #wiki__editbar .summary label, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .summary label /* new */ {
     vertical-align: middle;
     white-space: nowrap;
 }
-.dokuwiki #wiki__editbar .summary label span {
+.dokuwiki #wiki__editbar .summary label span, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .summary label span /* new */ {
     vertical-align: middle;
 }
-.dokuwiki #wiki__editbar .summary input {
+.dokuwiki #wiki__editbar .summary input, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .summary input /* new */ {
 }
 /* change background colour if summary is missing */
-.dokuwiki #wiki__editbar .summary input.missing {
+.dokuwiki #wiki__editbar .summary input.missing, /* old, until 2012-01-25 */
+.dokuwiki div.editBar .summary input.missing /* new */ {
     color: __text__;
     background-color: #ffcccc;
 }
