@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Lithuanian language file
  *
