@@ -166,6 +166,11 @@
     top: 0;
     right: 0;
 }
+[dir=rtl] #IE6 #dokuwiki__pagetools ul li a.action.top,
+[dir=rtl] #IE7 #dokuwiki__pagetools ul li a.action.top {
+    right: auto;
+    left: 0;
+}
 
 
 /* sidebar
