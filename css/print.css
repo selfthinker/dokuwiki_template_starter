@@ -128,6 +128,9 @@ div.clearer {
     border: solid #ccc;
     border-width: 0 0 0 2pt;
 }
+[dir=rtl] .dokuwiki blockquote {
+    border-width: 0 2pt 0 0;
+}
 
 /* tables */
 .dokuwiki table {
@@ -143,6 +146,10 @@ div.clearer {
     vertical-align: top;
     border: 1pt solid #666;
     text-align: left;
+}
+[dir=rtl] .dokuwiki th,
+[dir=rtl] .dokuwiki td {
+    text-align: right;
 }
 .dokuwiki th {
     font-weight: bold;
