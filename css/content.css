@@ -8,36 +8,27 @@
 
 /*____________ section indenting ____________
 
-.dokuwiki.page h1 {
-    margin-left: 0;
-}
-.dokuwiki.page div.level1 {
-    margin-left: 0;
-}
-.dokuwiki.page h2 {
-    margin-left: .666em;
-}
-.dokuwiki.page div.level2 {
-    margin-left: 1em;
-}
-.dokuwiki.page h3 {
-    margin-left: 1.776em;
-}
-.dokuwiki.page div.level3 {
-    margin-left: 2em;
-}
-.dokuwiki.page h4 {
-    margin-left: 3em;
-}
-.dokuwiki.page div.level4 {
-    margin-left: 3em;
-}
-.dokuwiki.page h5 {
-    margin-left: 4.5712em;
-}
-.dokuwiki.page div.level5 {
-    margin-left: 4em;
-}
+.dokuwiki.page  h1 {margin-left: 0;}
+.dokuwiki.page  h2 {margin-left: .666em;}
+.dokuwiki.page  h3 {margin-left: 1.776em;}
+.dokuwiki.page  h4 {margin-left: 3em;}
+.dokuwiki.page  h5 {margin-left: 4.5712em;}
+.dokuwiki.page  div.level1 {margin-left: 0;}
+.dokuwiki.page  div.level2 {margin-left: 1em;}
+.dokuwiki.page  div.level3 {margin-left: 2em;}
+.dokuwiki.page  div.level4 {margin-left: 3em;}
+.dokuwiki.page  div.level5 {margin-left: 4em;}
+
+[dir=rtl] .dokuwiki .page h1 {margin-left: 0; margin-right: 0;}
+[dir=rtl] .dokuwiki .page h2 {margin-left: 0; margin-right: .666em;}
+[dir=rtl] .dokuwiki .page h3 {margin-left: 0; margin-right: 1.776em;}
+[dir=rtl] .dokuwiki .page h4 {margin-left: 0; margin-right: 3em;}
+[dir=rtl] .dokuwiki .page h5 {margin-left: 0; margin-right: 4.5712em;}
+[dir=rtl] .dokuwiki .page div.level1 {margin-left: 0; margin-right: 0;}
+[dir=rtl] .dokuwiki .page div.level2 {margin-left: 0; margin-right: 1em;}
+[dir=rtl] .dokuwiki .page div.level3 {margin-left: 0; margin-right: 2em;}
+[dir=rtl] .dokuwiki .page div.level4 {margin-left: 0; margin-right: 3em;}
+[dir=rtl] .dokuwiki .page div.level5 {margin-left: 0; margin-right: 4em;}
 */
 /* hx margin-left = (1 / font-size) * .levelx-margin */
 
@@ -118,6 +109,11 @@
     display: inline;
     padding: 0 .5em;
     margin-left: 1em;
+}
+[dir=rtl] .dokuwiki dl.code dt,
+[dir=rtl] .dokuwiki dl.file dt {
+    margin-left: 0;
+    margin-right: 1em;
 }
 .dokuwiki dl.code dt a,
 .dokuwiki dl.file dt a {

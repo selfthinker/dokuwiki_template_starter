@@ -41,6 +41,15 @@
     background-position: 0 center;
     padding: 0 0 0 20px;
 }
+[dir=rtl] .dokuwiki a.urlextern,
+[dir=rtl] .dokuwiki a.windows,
+[dir=rtl] .dokuwiki a.mail,
+[dir=rtl] .dokuwiki a.interwiki,
+[dir=rtl] .dokuwiki a.mediafile {
+    background-position: right center;
+    padding: 0 17px 0 0;
+}
+
 /* external link */
 .dokuwiki a.urlextern {
     background-image: url(images/link_icon.gif);

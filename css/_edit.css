@@ -20,6 +20,10 @@
     color: __text_alt__;
     background-color: inherit;
 }
+[dir=rtl] #draft__status {
+    float: left;
+}
+
 #tool__bar {
     float: left;
 }
@@ -67,6 +71,9 @@ div.picker button.toolbutton {
 #size__ctl {
     float: right;
 }
+[dir=rtl] #size__ctl {
+    float: left;
+}
 #size__ctl img {
     cursor: pointer;
 }
@@ -76,6 +83,11 @@ div.picker button.toolbutton {
 .dokuwiki div.editBar .editButtons /* new */ {
     display: inline;
     margin-right: 1em;
+}
+[dir=rtl] .dokuwiki #wiki__editbar .editButtons, /* old, until 2012-01-25 */
+[dir=rtl] .dokuwiki .editBar .editButtons /* new */ {
+    margin-right: 0;
+    margin-left: 1em;
 }
 .dokuwiki #wiki__editbar .editButtons input, /* old, until 2012-01-25 */
 .dokuwiki div.editBar .editButtons input /* new */ {
@@ -122,6 +134,9 @@ div.picker button.toolbutton {
     float: right;
     margin-top: -1.4em;
 }
+[dir=rtl] .dokuwiki .secedit {
+    float: left;
+}
 .dokuwiki .secedit input.button {
     font-size: 75%;
 }
@@ -135,4 +150,10 @@ div.picker button.toolbutton {
     padding: 3em .5em .01em .5em;
     border: solid __background_alt__;
     border-width: 0 .5em;
+}
+[dir=rtl] .dokuwiki div.section_highlight {
+    margin: -3em -1.5em -.01em 0;
+    padding: 3em 1em .01em 0;
+    border-left-width: 0;
+    border-right: .5em solid __background_alt__;
 }

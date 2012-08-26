@@ -18,6 +18,12 @@
     list-style: none;
     margin-left: 0;
 }
+[dir=rtl] .dokuwiki #dw__recent ul li, /* old, until 2012-01-25 */
+[dir=rtl] .dokuwiki #page__revisions ul li, /* old, until 2012-01-25 */
+[dir=rtl] .dokuwiki form.changes ul li /* new */ {
+    margin-right: 0;
+}
+
 .dokuwiki #dw__recent ul li span, /* old, until 2012-01-25 */
 .dokuwiki #page__revisions ul li span, /* old, until 2012-01-25 */
 .dokuwiki form.changes ul li span, /* new */
