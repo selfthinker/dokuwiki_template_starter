@@ -51,7 +51,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
                     <p class="claim"><?php echo $conf['tagline'] ?></p>
                 <?php endif ?>
 
-                <ul class="a11y">
+                <ul class="a11y skip">
                     <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content'] ?></a></li>
                 </ul>
                 <div class="clearer"></div>
