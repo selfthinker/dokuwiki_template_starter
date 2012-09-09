@@ -36,6 +36,7 @@
 #dw__toc h3 strong /* new */ {
     float: right;
     margin: 0 .2em;
+    line-height: 1;
 }
 [dir=rtl] .dokuwiki .toc span.toc_open, /* old */
 [dir=rtl] .dokuwiki .toc span.toc_close, /* old */

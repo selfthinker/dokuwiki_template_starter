@@ -78,6 +78,7 @@
 
 .dokuwiki form.search div.no {
     position: relative;
+    z-index: 1;
 }
 
 /* .JSpopup */

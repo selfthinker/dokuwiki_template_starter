@@ -27,6 +27,9 @@
 #tool__bar {
     float: left;
 }
+[dir=rtl] #tool__bar {
+    float: right;
+}
 
 /* buttons inside of toolbar */
 .dokuwiki div.toolbar button.toolbutton {
