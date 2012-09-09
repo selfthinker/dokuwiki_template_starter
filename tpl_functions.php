@@ -16,26 +16,26 @@ if (!defined('DOKU_INC')) die();
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_discussion($discussionPage,$title,$backTitle,$link=0,$wrapper=0) {
+function _tpl_discussion($discussionPage, $title, $backTitle, $link=0, $wrapper=0) {
     global $ID;
 
-    $discussPage    = str_replace('@ID@',$ID,$discussionPage);
-    $discussPageRaw = str_replace('@ID@','',$discussionPage);
-    $isDiscussPage  = strpos($ID,$discussPageRaw)!==false;
-    $backID         = str_replace($discussPageRaw,'',$ID);
+    $discussPage    = str_replace('@ID@', $ID, $discussionPage);
+    $discussPageRaw = str_replace('@ID@', '', $discussionPage);
+    $isDiscussPage  = strpos($ID, $discussPageRaw) !== false;
+    $backID         = str_replace($discussPageRaw, '', $ID);
 
     if ($wrapper) echo "<$wrapper>";
 
     if ($isDiscussPage) {
         if ($link)
-            tpl_pagelink($backID,$backTitle);
+            tpl_pagelink($backID, $backTitle);
         else
-            echo html_btn('back2article',$backID,'',array(),'get',0,$backTitle);
+            echo html_btn('back2article', $backID, '', array(), 'get', 0, $backTitle);
     } else {
         if ($link)
-            tpl_pagelink($discussPage,$title);
+            tpl_pagelink($discussPage, $title);
         else
-            echo html_btn('discussion',$discussPage,'',array(),'get',0,$title);
+            echo html_btn('discussion', $discussPage, '', array(), 'get', 0, $title);
     }
 
     if ($wrapper) echo "</$wrapper>";
@@ -46,29 +46,29 @@ function _tpl_discussion($discussionPage,$title,$backTitle,$link=0,$wrapper=0) {
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_userpage($userPage,$title,$link=0,$wrapper=0) {
+function _tpl_userpage($userPage, $title, $link=0, $wrapper=0) {
     if (!$_SERVER['REMOTE_USER']) return;
 
     global $conf;
-    $userPage = str_replace('@USER@',$_SERVER['REMOTE_USER'],$userPage);
+    $userPage = str_replace('@USER@', $_SERVER['REMOTE_USER'], $userPage);
 
     if ($wrapper) echo "<$wrapper>";
 
     if ($link)
-        tpl_pagelink($userPage,$title);
+        tpl_pagelink($userPage, $title);
     else
-        echo html_btn('userpage',$userPage,'',array(),'get',0,$title);
+        echo html_btn('userpage', $userPage, '', array(), 'get', 0, $title);
 
     if ($wrapper) echo "</$wrapper>";
 }
 
 /**
  * Create link/button to register page
- * DW versions > 2011-02-20 can use the core function tpl_action('register')
+ * @deprecated DW versions > 2011-02-20 can use the core function tpl_action('register')
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_register($link=0,$wrapper=0) {
+function _tpl_register($link=0, $wrapper=0) {
     global $conf;
     global $lang;
     global $ID;
@@ -79,9 +79,9 @@ function _tpl_register($link=0,$wrapper=0) {
     if ($wrapper) echo "<$wrapper>";
 
     if ($link)
-        tpl_link(wl($ID,'do=register'),$lang_register,'class="action register" rel="nofollow"');
+        tpl_link(wl($ID, 'do=register'), $lang_register, 'class="action register" rel="nofollow"');
     else
-        echo html_btn('register',$ID,'',array('do'=>'register'),'get',0,$lang_register);
+        echo html_btn('register', $ID, '', array('do'=>'register'), 'get', 0, $lang_register);
 
     if ($wrapper) echo "</$wrapper>";
 }
@@ -91,27 +91,34 @@ function _tpl_register($link=0,$wrapper=0) {
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_action($type,$link=0,$wrapper=0) {
+function _tpl_action($type, $link=0, $wrapper=0) {
     switch ($type) {
         case 'discussion':
             if (tpl_getConf('discussionPage')) {
-                _tpl_discussion(tpl_getConf('discussionPage'),tpl_getLang('discussion'),tpl_getLang('back_to_article'),$link,$wrapper);
+                _tpl_discussion(tpl_getConf('discussionPage'), tpl_getLang('discussion'), tpl_getLang('back_to_article'), $link, $wrapper);
             }
             break;
         case 'userpage':
             if (tpl_getConf('userPage')) {
-                _tpl_userpage(tpl_getConf('userPage'),tpl_getLang('userpage'),$link,$wrapper);
+                _tpl_userpage(tpl_getConf('userPage'), tpl_getLang('userpage'), $link, $wrapper);
             }
             break;
-        case 'register':
-            _tpl_register($link,$wrapper);
+        case 'register': // deprecated
+            _tpl_register($link, $wrapper);
             break;
     }
 }
 
+
+
+/* deprecated functions for backwards compatibility
+********************************************************************/
+
+
 /**
  * Returns icon from data/media root directory if it exists, otherwise
  * the one in the template's image directory.
+ * @deprecated superseded by core tpl_getFavicon()
  *
  * @param  bool $abs        - if to use absolute URL
  * @param  string $fileName - file name of icon
@@ -130,7 +137,7 @@ function _tpl_getFavicon($abs=false, $fileName='favicon.ico') {
 
 /* use core function if available, otherwise the custom one */
 if (!function_exists('tpl_getFavicon')) {
-    function tpl_getFavicon($abs=false, $fileName='favicon.ico'){
+    function tpl_getFavicon($abs=false, $fileName='favicon.ico') {
         _tpl_getFavicon($abs, $fileName);
     }
 }
@@ -138,6 +145,7 @@ if (!function_exists('tpl_getFavicon')) {
 
 /**
  * Returns <link> tag for various icon types (favicon|mobile|generic)
+ * @deprecated superseded by core tpl_favicon()
  *
  * @param  array $types - list of icon types to display (favicon|mobile|generic)
  * @author Anika Henke <anika@selfthinker.org>
@@ -166,7 +174,7 @@ function _tpl_favicon($types=array('favicon')) {
 
 /* use core function if available, otherwise the custom one */
 if (!function_exists('tpl_favicon')) {
-    function tpl_favicon($types=array('favicon')){
+    function tpl_favicon($types=array('favicon')) {
         _tpl_favicon($types);
     }
 }
@@ -175,6 +183,7 @@ if (!function_exists('tpl_favicon')) {
 /**
  * Include additional html file from conf directory if it exists, otherwise use
  * file in the template's root directory.
+ * @deprecated superseded by core tpl_includeFile()
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
@@ -190,7 +199,40 @@ function _tpl_include($fn) {
 
 /* use core function if available, otherwise the custom one */
 if (!function_exists('tpl_includeFile')) {
-    function tpl_includeFile($fn){
+    function tpl_includeFile($fn) {
         _tpl_include($fn);
     }
+}
+
+
+/* if newer settings exist in the core, use them, otherwise fall back to template settings */
+
+if (!isset($conf['tagline'])) {
+    $conf['tagline'] = tpl_getConf('tagline');
+}
+
+if (!isset($conf['sidebar'])) {
+    $conf['sidebar'] = tpl_getConf('sidebarID');
+}
+
+if (!function_exists('tpl_sidebar')) {
+    function tpl_sidebar() {
+        /* includes the given wiki page; not exactly the same as in the core */
+        tpl_include_page($conf['sidebar']);
+    }
+}
+
+/* these $lang strings are now in the core */
+
+if (!isset($lang['user_tools'])) {
+    $lang['user_tools'] = tpl_getLang('user_tools');
+}
+if (!isset($lang['site_tools'])) {
+    $lang['site_tools'] = tpl_getLang('site_tools');
+}
+if (!isset($lang['page_tools'])) {
+    $lang['page_tools'] = tpl_getLang('page_tools');
+}
+if (!isset($lang['skip_to_content'])) {
+    $lang['skip_to_content'] = tpl_getLang('skip_to_content');
 }

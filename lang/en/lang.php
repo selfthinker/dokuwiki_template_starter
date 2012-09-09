@@ -8,7 +8,7 @@ $lang['discussion']        = 'Discussion';
 $lang['back_to_article']   = 'Back to article';
 $lang['userpage']          = 'User page';
 
-/* accessibility headlines */
+/* accessibility headlines (deprecated and superseded by core since Adora Belle) */
 $lang['user_tools']        = 'User Tools';
 $lang['site_tools']        = 'Site Tools';
 $lang['page_tools']        = 'Page Tools';

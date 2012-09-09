@@ -47,12 +47,12 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
                 <?php /* how to insert logo instead (if no CSS image replacement technique is used):
                         upload your logo into the data/media folder (root of the media manager) and replace 'logo.png' accordingly:
                         tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />','id="dokuwiki__top" accesskey="h" title="[H]"') */ ?>
-                <?php if (tpl_getConf('tagline')): ?>
-                    <p class="claim"><?php echo tpl_getConf('tagline') ?></p>
+                <?php if ($conf['tagline']): ?>
+                    <p class="claim"><?php echo $conf['tagline'] ?></p>
                 <?php endif ?>
 
                 <ul class="a11y">
-                    <li><a href="#dokuwiki__content"><?php echo tpl_getLang('skip_to_content') ?></a></li>
+                    <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content'] ?></a></li>
                 </ul>
                 <div class="clearer"></div>
             </div>
@@ -61,10 +61,10 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl'] && $showTools): ?>
                     <div id="dokuwiki__usertools">
-                        <h3 class="a11y"><?php echo tpl_getLang('user_tools') ?></h3>
+                        <h3 class="a11y"><?php echo $lang['user_tools'] ?></h3>
                         <ul>
                             <?php /* the optional second parameter of tpl_action() switches between a link and a button,
-                                     e.g. a button inside a <li> would be: tpl_action('edit',0,'li') */
+                                     e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
                                 if ($_SERVER['REMOTE_USER']) {
                                     echo '<li class="user">';
                                     tpl_userinfo(); /* 'Logged in as ...' */
@@ -73,7 +73,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
                                 tpl_action('admin', 1, 'li');
                                 _tpl_action('userpage', 1, 'li');
                                 tpl_action('profile', 1, 'li');
-                                _tpl_action('register', 1, 'li'); /* DW versions > 2011-02-20 can use the core function tpl_action('register', 1, 'li') */
+                                tpl_action('register', 1, 'li'); /* DW versions < 2011-02-20 need to use _tpl_action('register', 1, 'li') */
                                 tpl_action('login', 1, 'li');
                             ?>
                         </ul>
@@ -82,7 +82,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
 
                 <!-- SITE TOOLS -->
                 <div id="dokuwiki__sitetools">
-                    <h3 class="a11y"><?php echo tpl_getLang('site_tools') ?></h3>
+                    <h3 class="a11y"><?php echo $lang['site_tools'] ?></h3>
                     <?php tpl_searchform() ?>
                     <ul>
                         <?php
@@ -113,7 +113,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
 
             <!-- ********** ASIDE ********** -->
             <div id="dokuwiki__aside"><div class="pad include">
-                <?php tpl_include_page(tpl_getConf('sidebarID')) /* includes the given wiki page */ ?>
+                <?php tpl_sidebar() /* includes the nearest sidebar page */ ?>
                 <div class="clearer"></div>
             </div></div><!-- /aside -->
 
@@ -139,7 +139,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
             <!-- PAGE ACTIONS -->
             <?php if ($showTools): ?>
                 <div id="dokuwiki__pagetools">
-                    <h3 class="a11y"><?php echo tpl_getLang('page_tools') ?></h3>
+                    <h3 class="a11y"><?php echo $lang['page_tools'] ?></h3>
                     <ul>
                         <?php
                             tpl_action('edit', 1, 'li');
