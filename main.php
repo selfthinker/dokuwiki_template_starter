@@ -113,7 +113,9 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
 
             <!-- ********** ASIDE ********** -->
             <div id="dokuwiki__aside"><div class="pad include">
-                <?php tpl_sidebar() /* includes the nearest sidebar page */ ?>
+                <?php tpl_includeFile('sidebarheader.html') ?>
+                <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
+                <?php tpl_includeFile('sidebarfooter.html') ?>
                 <div class="clearer"></div>
             </div></div><!-- /aside -->
 
