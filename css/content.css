@@ -33,6 +33,20 @@
 /* hx margin-left = (1 / font-size) * .levelx-margin */
 
 
+/*____________ links to wiki pages (addition to _links) ____________*/
+
+/* existing wikipage */
+.dokuwiki a.wikilink1 {
+    color: __existing__;
+    background-color: inherit;
+}
+/* not existing wikipage */
+.dokuwiki a.wikilink2 {
+    color: __missing__;
+    background-color: inherit;
+}
+
+
 /*____________ images ____________*/
 
 /* embedded images (styles are already partly set in DokuWiki's lib/styles/all.css) */
@@ -51,6 +65,10 @@
 
 
 /*____________ tables ____________*/
+
+/* div before each table */
+.dokuwiki div.table {
+}
 
 .dokuwiki table.inline {
     min-width: 50%;
