@@ -111,98 +111,8 @@ function _tpl_action($type, $link=0, $wrapper=0) {
 
 
 
-/* deprecated functions for backwards compatibility
+/* fallbacks for things missing in older DokuWiki versions
 ********************************************************************/
-
-
-/**
- * Returns icon from data/media root directory if it exists, otherwise
- * the one in the template's image directory.
- * @deprecated superseded by core tpl_getFavicon()
- *
- * @param  bool $abs        - if to use absolute URL
- * @param  string $fileName - file name of icon
- * @author Anika Henke <anika@selfthinker.org>
- */
-function _tpl_getFavicon($abs=false, $fileName='favicon.ico') {
-    if (file_exists(mediaFN($fileName))) {
-        return ml($fileName, '', true, '', $abs);
-    }
-
-    if($abs) {
-        return DOKU_URL.substr(DOKU_TPL.'images/'.$fileName, strlen(DOKU_REL));
-    }
-    return DOKU_TPL.'images/'.$fileName;
-}
-
-/* use core function if available, otherwise the custom one */
-if (!function_exists('tpl_getFavicon')) {
-    function tpl_getFavicon($abs=false, $fileName='favicon.ico') {
-        _tpl_getFavicon($abs, $fileName);
-    }
-}
-
-
-/**
- * Returns <link> tag for various icon types (favicon|mobile|generic)
- * @deprecated superseded by core tpl_favicon()
- *
- * @param  array $types - list of icon types to display (favicon|mobile|generic)
- * @author Anika Henke <anika@selfthinker.org>
- */
-function _tpl_favicon($types=array('favicon')) {
-
-    $return = '';
-
-    foreach ($types as $type) {
-        switch($type) {
-            case 'favicon':
-                $return .= '<link rel="shortcut icon" href="'.tpl_getFavicon().'" />'.NL;
-                break;
-            case 'mobile':
-                $return .= '<link rel="apple-touch-icon" href="'.tpl_getFavicon(false, 'apple-touch-icon.png').'" />'.NL;
-                break;
-            case 'generic':
-                // ideal world solution, which doesn't work in any browser yet
-                $return .= '<link rel="icon" href="'.tpl_getFavicon(false, 'icon.svg').'" type="image/svg+xml" />'.NL;
-                break;
-        }
-    }
-
-    return $return;
-}
-
-/* use core function if available, otherwise the custom one */
-if (!function_exists('tpl_favicon')) {
-    function tpl_favicon($types=array('favicon')) {
-        _tpl_favicon($types);
-    }
-}
-
-
-/**
- * Include additional html file from conf directory if it exists, otherwise use
- * file in the template's root directory.
- * @deprecated superseded by core tpl_includeFile()
- *
- * @author Anika Henke <anika@selfthinker.org>
- */
-function _tpl_include($fn) {
-    $confFile = DOKU_CONF.$fn;
-    $tplFile  = dirname(__FILE__).'/'.$fn;
-
-    if (file_exists($confFile))
-        include($confFile);
-    else if (file_exists($tplFile))
-        include($tplFile);
-}
-
-/* use core function if available, otherwise the custom one */
-if (!function_exists('tpl_includeFile')) {
-    function tpl_includeFile($fn) {
-        _tpl_include($fn);
-    }
-}
 
 
 /* if newer settings exist in the core, use them, otherwise fall back to template settings */
@@ -213,13 +123,6 @@ if (!isset($conf['tagline'])) {
 
 if (!isset($conf['sidebar'])) {
     $conf['sidebar'] = tpl_getConf('sidebarID');
-}
-
-if (!function_exists('tpl_sidebar')) {
-    function tpl_sidebar() {
-        /* includes the given wiki page; not exactly the same as in the core */
-        tpl_include_page($conf['sidebar']);
-    }
 }
 
 /* these $lang strings are now in the core */
@@ -235,4 +138,98 @@ if (!isset($lang['page_tools'])) {
 }
 if (!isset($lang['skip_to_content'])) {
     $lang['skip_to_content'] = tpl_getLang('skip_to_content');
+}
+
+
+/**
+ * copied from core (available since Adora Belle)
+ */
+if (!function_exists('tpl_getMediaFile')) {
+    function tpl_getMediaFile($search, $abs = false, &$imginfo = null) {
+        $img     = '';
+        $file    = '';
+        $ismedia = false;
+        // loop through candidates until a match was found:
+        foreach($search as $img) {
+            if(substr($img, 0, 1) == ':') {
+                $file    = mediaFN($img);
+                $ismedia = true;
+            } else {
+                $file    = tpl_incdir().$img;
+                $ismedia = false;
+            }
+
+            if(file_exists($file)) break;
+        }
+
+        // fetch image data if requested
+        if(!is_null($imginfo)) {
+            $imginfo = getimagesize($file);
+        }
+
+        // build URL
+        if($ismedia) {
+            $url = ml($img, '', true, '', $abs);
+        } else {
+            $url = tpl_basedir().$img;
+            if($abs) $url = DOKU_URL.substr($url, strlen(DOKU_REL));
+        }
+
+        return $url;
+    }
+}
+
+/**
+ * copied from core (available since Angua)
+ */
+if (!function_exists('tpl_favicon')) {
+    function tpl_favicon($types = array('favicon')) {
+
+        $return = '';
+
+        foreach($types as $type) {
+            switch($type) {
+                case 'favicon':
+                    $look = array(':wiki:favicon.ico', ':favicon.ico', 'images/favicon.ico');
+                    $return .= '<link rel="shortcut icon" href="'.tpl_getMediaFile($look).'" />'.NL;
+                    break;
+                case 'mobile':
+                    $look = array(':wiki:apple-touch-icon.png', ':apple-touch-icon.png', 'images/apple-touch-icon.png');
+                    $return .= '<link rel="apple-touch-icon" href="'.tpl_getMediaFile($look).'" />'.NL;
+                    break;
+                case 'generic':
+                    // ideal world solution, which doesn't work in any browser yet
+                    $look = array(':wiki:favicon.svg', ':favicon.svg', 'images/favicon.svg');
+                    $return .= '<link rel="icon" href="'.tpl_getMediaFile($look).'" type="image/svg+xml" />'.NL;
+                    break;
+            }
+        }
+
+        return $return;
+    }
+}
+
+/**
+ * copied from core (available since Adora Belle)
+ */
+if (!function_exists('tpl_includeFile')) {
+    function tpl_includeFile($file) {
+        global $config_cascade;
+        foreach(array('protected', 'local', 'default') as $config_group) {
+            if(empty($config_cascade['main'][$config_group])) continue;
+            foreach($config_cascade['main'][$config_group] as $conf_file) {
+                $dir = dirname($conf_file);
+                if(file_exists("$dir/$file")) {
+                    include("$dir/$file");
+                    return;
+                }
+            }
+        }
+
+        // still here? try the template dir
+        $file = tpl_incdir().$file;
+        if(file_exists($file)) {
+            include($file);
+        }
+    }
 }
