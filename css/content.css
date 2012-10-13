@@ -104,7 +104,7 @@
     border-width: 1px 1px 0;
     color: inherit;
     display: inline;
-    padding: 0 .5em;
+    padding: .1em .5em .2em;
     margin-left: 1em;
 }
 [dir=rtl] .dokuwiki dl.code dt,
