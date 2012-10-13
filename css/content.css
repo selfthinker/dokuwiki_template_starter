@@ -73,16 +73,6 @@
 .dokuwiki table.inline {
     min-width: 50%;
 }
-.dokuwiki table.inline th,
-.dokuwiki table.inline td {
-    border: 1px solid __text_alt__;
-}
-.dokuwiki table.inline th {
-    color: inherit;
-    background-color: __background_neu__;
-}
-.dokuwiki table.inline td {
-}
 .dokuwiki table.inline tr:hover td {
     background-color: __background_alt__;
 }
@@ -93,22 +83,11 @@
 
 /*____________ code ____________*/
 
-.dokuwiki pre,
-.dokuwiki tt,
-.dokuwiki code,
-.dokuwiki samp,
-.dokuwiki kbd {
-    background-color: __background_alt__;
-    color: __text__;
-}
 /* fix if background-color hides underlining */
 .dokuwiki em.u code {
     text-decoration: underline;
 }
-.dokuwiki pre {
-    border: 1px solid __border__;
-    padding: 0 .2em;
-}
+
 /* for code in <file> */
 .dokuwiki pre.file {
 }
@@ -142,3 +121,39 @@
     margin: 0;
 }
 
+
+/*____________ media manager ____________*/
+
+#mediamanager__page h2,
+#mediamanager__page h3 {
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, Myriad, "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: __text__;
+}
+
+/* to style button-like div in _fileuploader.css to look like other buttons,
+   please add '.qq-upload-button' to the according styles (which don't really exist in this template) */
+.qq-upload-button {
+    border: 1px solid __border__;
+    background-color: __background_alt__;
+    padding: 0.125em 0.4em;
+}
+
+
+/*____________ JS popup ____________*/
+
+.JSpopup {
+    background-color: __background__;
+    color: __text__;
+    border: 1px solid __border__;
+    line-height: 1.2;
+    padding: 0 .2em;
+}
+
+.JSpopup ul,
+.JSpopup ol {
+    padding-left: 0;
+}
+[dir=rtl] .JSpopup ul,
+[dir=rtl] .JSpopup ol {
+    padding-right: 0;
+}

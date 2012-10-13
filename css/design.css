@@ -239,52 +239,9 @@
     word-wrap: break-word;
 }
 
-#mediamanager__page h2,
-#mediamanager__page h3 {
-    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, Myriad, "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: __text__;
-}
-
-/*____________ misc ____________*/
-
 /* license note in footer and under edit window */
 .dokuwiki div.license {
     font-size: 93.75%;
-}
-
-#IE6 .dokuwiki input.button,
-#IE6 .dokuwiki button,
-#IE7 .dokuwiki input.button,
-#IE7 .dokuwiki button {
-    line-height: 1.4;
-}
-
-/* to style button-like div in _fileuploader.css to look like other buttons,
-   please add '.qq-upload-button' to the according styles (which don't really exist in this template) */
-.qq-upload-button {
-    border: 1px solid __border__;
-    background-color: __background_alt__;
-    padding: 0.125em 0.4em;
-}
-
-
-/*____________ JS popup ____________*/
-
-.JSpopup {
-    background-color: __background__;
-    color: __text__;
-    border: 1px solid __border__;
-    line-height: 1.2;
-    padding: 0 .2em;
-}
-
-.JSpopup ul,
-.JSpopup ol {
-    padding-left: 0;
-}
-[dir=rtl] .JSpopup ul,
-[dir=rtl] .JSpopup ol {
-    padding-right: 0;
 }
 
 
@@ -305,12 +262,14 @@
 #IE7 #dokuwiki__footer {
     height: 1%;
 }
+
 #dokuwiki__footer .doc {
     float: left;
 }
 #dokuwiki__footer .top {
     float: right;
 }
+
 #dokuwiki__footer .license {
     clear: both;
 }
@@ -318,4 +277,3 @@
     margin: 0 .5em 0 0;
     float: none;
 }
-

@@ -43,6 +43,16 @@ legend {
     line-height: 1.2;
     clear: left; /* ideally 'both', but problems with toc */
 }
+[dir=rtl] h1,
+[dir=rtl] h2,
+[dir=rtl] h3,
+[dir=rtl] h4,
+[dir=rtl] h5,
+[dir=rtl] h6,
+[dir=rtl] caption,
+[dir=rtl] legend {
+    clear: right;
+}
 
 h1 {
     font-size: 2.25em;
@@ -99,11 +109,21 @@ ul,
 ol {
     padding: 0 0 0 1.5em;
 }
+[dir=rtl] ul,
+[dir=rtl] ol {
+    padding: 0 1.5em 0 0;
+}
+
 li,
 dd {
     padding: 0;
     margin: 0 0 0 1.5em;
 }
+[dir=rtl] li,
+[dir=rtl] dd {
+    margin: 0 1.5em 0 0;
+}
+
 dt {
     font-weight: bold;
     margin: 0;
@@ -157,6 +177,9 @@ caption {
     text-align: left;
     margin: 0 0 .3em;
 }
+[dir=rtl] caption {
+    text-align: right;
+}
 
 th,
 td {
@@ -166,9 +189,14 @@ td {
     border: 1px solid __border__;
     text-align: left;
 }
+[dir=rtl] td,
+[dir=rtl] th {
+    text-align: right;
+}
 th {
     font-weight: bold;
     background-color: __background_alt__;
+    color: inherit;
 }
 
 
@@ -243,10 +271,14 @@ kbd {
     font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
     /* same font stack should be used for ".dokuwiki table.diff td" in _diff.css */
     font-size: 1em;
+    background-color: __background_alt__;
+    color: __text__;
     direction: ltr;
     text-align: left;
 }
 pre {
+    border: 1px solid __border__;
+    padding: 0 .2em;
     overflow: auto;
     word-wrap: normal;
 }
@@ -255,6 +287,9 @@ blockquote {
     padding: 0 .5em;
     border: solid __border__;
     border-width: 0 0 0 .25em;
+}
+[dir=rtl] blockquote {
+    border-width: 0 .25em 0 0;
 }
 q:before,
 q:after {
@@ -280,6 +315,7 @@ form {
     margin: 0;
     padding: 0;
 }
+
 fieldset {
     padding: 1em 1em 0;
     border: 1px solid __text_alt__;
@@ -288,10 +324,12 @@ legend {
     margin: 0;
     padding: 0 .1em;
 }
+
 label {
     vertical-align: middle;
     cursor: pointer;
 }
+
 input,
 textarea,
 button,
@@ -305,6 +343,7 @@ option {
     margin: 0;
     vertical-align: middle;
 }
+
 input[type=text],
 input[type=password],
 textarea {
@@ -315,17 +354,26 @@ input[type=checkbox],
 input.check {
     padding: 0;
 }
+
 input[type=submit],
 input.button,
 button {
     cursor: pointer;
 }
+#IE6 .dokuwiki input.button,
+#IE6 .dokuwiki button,
+#IE7 .dokuwiki input.button,
+#IE7 .dokuwiki button {
+    line-height: 1.4;
+}
+
 input[disabled],
 button[disabled],
 input[readonly],
 button[readonly] {
     cursor: auto;
 }
+
 optgroup {
     font-style: italic;
     font-weight: bold;
@@ -344,49 +392,17 @@ div.clearer {
     visibility: hidden;
 }
 
+/* @deprecated: has been in lib/styles/screen.css since Angua */
 .a11y {
     position: absolute;
-    left: -9000px;
-    top: -4000px;
+    left: -99999em;
+    top: 0;
     width: 0;
     height: 0;
     overflow: hidden;
     display: inline;
 }
-
-
-/*____________ rtl corrections ____________*/
-
-[dir=rtl] caption,
-[dir=rtl] td,
-[dir=rtl] th {
-    text-align: right;
-}
-
-[dir=rtl] ul,
-[dir=rtl] ol {
-    padding: 0 1.5em 0 0;
-}
-[dir=rtl] li,
-[dir=rtl] dd {
-    margin: 0 1.5em 0 0;
-}
-[dir=rtl] blockquote {
-    border-width: 0 .25em 0 0;
-}
-
-[dir=rtl] h1,
-[dir=rtl] h2,
-[dir=rtl] h3,
-[dir=rtl] h4,
-[dir=rtl] h5,
-[dir=rtl] h6,
-[dir=rtl] caption,
-[dir=rtl] legend {
-    clear: right;
-}
-
 [dir=rtl] .a11y {
     left: auto;
-    right: -9000px;
+    right: -99999em;
 }
