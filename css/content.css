@@ -124,9 +124,10 @@
 
 /*____________ media manager ____________*/
 
+/* some headings in the media manager should not look like headings */
 #mediamanager__page h2,
 #mediamanager__page h3 {
-    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, Myriad, "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Frutiger, Calibri, Myriad, "Nimbus Sans L", Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: __text__;
 }
 
