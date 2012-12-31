@@ -233,3 +233,13 @@ if (!function_exists('tpl_includeFile')) {
         }
     }
 }
+
+/**
+ * copied from core (available since Adora Belle)
+ */
+if (!function_exists('tpl_incdir')) {
+    function tpl_incdir() {
+        global $conf;
+        return DOKU_INC.'lib/tpl/'.$conf['template'].'/';
+    }
+}
