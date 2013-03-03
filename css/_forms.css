@@ -24,7 +24,7 @@
   font-weight: bold;
 }
 [dir=rtl] .dokuwiki label.block {
-  text-align: left;
+    text-align: left;
 }
 
 .dokuwiki label.simple {
@@ -33,7 +33,7 @@
   font-weight: normal;
 }
 [dir=rtl] .dokuwiki label.simple {
-  text-align: right;
+    text-align: right;
 }
 
 .dokuwiki label.block select,
@@ -67,6 +67,19 @@
 .dokuwiki button.button {
     vertical-align: middle;
 }
+/**
+ * Styles for auth forms
+ */
+#dw__login label[for="remember__me"] {
+    margin-left: 50%;
+    margin-bottom: 1.4em;
+}
+#dw__login fieldset,
+#dw__resendpwd fieldset,
+#dw__register fieldset {
+    padding-bottom: 0.7em;
+}
+
 
 /**
  * Styles for the subscription page
