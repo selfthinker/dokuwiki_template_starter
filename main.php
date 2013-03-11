@@ -35,7 +35,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
          see http://www.dokuwiki.org/devel:action_modes for a list of action modes */ ?>
     <?php /* .dokuwiki should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
     <div id="dokuwiki__site"><div id="dokuwiki__top"
-        class="dokuwiki site mode_<?php echo $ACT ?>">
+        class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($conf['sidebar']) ? 'hasSidebar' : '' ?>">
         <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
         <?php tpl_includeFile('header.html') ?>
 
@@ -112,12 +112,14 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
         <div class="wrapper">
 
             <!-- ********** ASIDE ********** -->
-            <div id="dokuwiki__aside"><div class="pad include">
-                <?php tpl_includeFile('sidebarheader.html') ?>
-                <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
-                <?php tpl_includeFile('sidebarfooter.html') ?>
-                <div class="clearer"></div>
-            </div></div><!-- /aside -->
+            <?php if ($conf['sidebar']): ?>
+                <div id="dokuwiki__aside"><div class="pad include">
+                    <?php tpl_includeFile('sidebarheader.html') ?>
+                    <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
+                    <?php tpl_includeFile('sidebarfooter.html') ?>
+                    <div class="clearer"></div>
+                </div></div><!-- /aside -->
+            <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content"><div class="pad">

@@ -71,20 +71,20 @@ body {
     }
 
     /* make content wider when there's no sidebar */
-    .mode_show #dokuwiki__content {
+    .hasSidebar.mode_show #dokuwiki__content {
         float: right;
         margin-left: -__sidebar_width__;
         width: 100%;
     }
-    [dir=rtl] .mode_show #dokuwiki__content {
+    [dir=rtl] .hasSidebar.mode_show #dokuwiki__content {
         float: left;
         margin-left: 0;
         margin-right: -__sidebar_width__;
     }
-    .mode_show #dokuwiki__content > .pad {
+    .hasSidebar.mode_show #dokuwiki__content > .pad {
         margin-left: __sidebar_width__;
     }
-    [dir=rtl] .mode_show #dokuwiki__content > .pad {
+    [dir=rtl] .hasSidebar.mode_show #dokuwiki__content > .pad {
         margin-left: 0;
         margin-right: __sidebar_width__;
     }
