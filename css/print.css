@@ -11,19 +11,13 @@ body {
 }
 
 /* hide certain sections */
-.a11y,
 audio,
 video,
-div.notify,
-div.info,
-div.success,
-div.error,
 #dokuwiki__header .tools,
 #dokuwiki__aside,
 .dokuwiki .breadcrumbs,
 .dokuwiki .toc,
 #dw__toc,
-.dokuwiki .secedit,
 #dokuwiki__pagetools,
 #dokuwiki__footer {
     display: none;
@@ -104,35 +98,8 @@ img.mediacenter {
     margin: .2em auto;
 }
 
-/* align table cells */
-.leftalign {
-    text-align: left;
-}
-.centeralign {
-    text-align: center;
-}
-.rightalign {
-    text-align: right;
-}
-
-/* underline */
-em.u {
-    font-style: normal;
-    text-decoration: underline;
-}
-em em.u {
-    font-style: italic;
-}
-
 mark {
     font-weight: bold;
-}
-
-div.clearer {
-    clear: both;
-    line-height: 0;
-    height: 0;
-    overflow: hidden;
 }
 
 blockquote {
@@ -184,4 +151,44 @@ th {
     clear: both;
     border-top: 1pt solid #000;
     margin-top: 10pt;
+}
+
+
+/*____________ @deprecated ____________*/
+/* unnecessary, has been in lib/styles/all|print.css since Rincewind */
+
+.a11y,
+div.notify,
+div.info,
+div.success,
+div.error,
+.dokuwiki .secedit {
+    display: none;
+}
+
+/* align table cells */
+.leftalign {
+    text-align: left;
+}
+.centeralign {
+    text-align: center;
+}
+.rightalign {
+    text-align: right;
+}
+
+/* underline */
+em.u {
+    font-style: normal;
+    text-decoration: underline;
+}
+em em.u {
+    font-style: italic;
+}
+
+div.clearer {
+    clear: both;
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
 }
