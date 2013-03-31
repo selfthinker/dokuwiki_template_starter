@@ -6,7 +6,7 @@
 
 @media only screen and (max-width: 42em) {
 
-.mode_show #dokuwiki__aside {
+#dokuwiki__aside {
     width: 100%;
     float: none;
     margin-bottom: 1.4em;
@@ -15,15 +15,15 @@
     margin: 0;
 }
 
-.mode_show #dokuwiki__content {
+.hasSidebar #dokuwiki__content {
     float: none;
     margin-left: 0;
     margin-right: 0;
 }
-.mode_show #dokuwiki__content > .pad {
+.hasSidebar #dokuwiki__content > .pad {
     margin-left: 0;
 }
-[dir=rtl] .mode_show #dokuwiki__content > .pad {
+[dir=rtl] .hasSidebar #dokuwiki__content > .pad {
     margin-right: 0;
 }
 
