@@ -20,8 +20,9 @@ body {
     padding: 0;
 }
 body {
-    font: normal 100%/1.4 Frutiger, Calibri, Myriad, "Nimbus Sans L", Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: normal 100%/1.4 Frutiger, Calibri, "Myriad Pro", Myriad, "Nimbus Sans L", Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
     /* default font size: 100% => 16px; 93.75% => 15px; 87.5% => 14px; 81.25% => 13px; 75% => 12px */
+    -webkit-text-size-adjust: 100%;
 }
 
 
@@ -32,9 +33,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-caption,
-legend {
+h6 {
     font-family: Constantia, Utopia, Lucidabright, Lucida, Georgia, "Nimbus Roman No9 L", serif;
     font-weight: bold;
     color: __text_neu__;
@@ -48,9 +47,7 @@ legend {
 [dir=rtl] h3,
 [dir=rtl] h4,
 [dir=rtl] h5,
-[dir=rtl] h6,
-[dir=rtl] caption,
-[dir=rtl] legend {
+[dir=rtl] h6 {
     clear: right;
 }
 
@@ -80,6 +77,17 @@ h6 {
 }
 /* bottom margin = 1 / font-size */
 
+caption,
+figcaption,
+summary,
+legend {
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.2;
+    padding: 0;
+    margin: 0 0 .35em;
+}
+
 
 /*____________ basic margins and paddings ____________*/
 
@@ -91,6 +99,8 @@ pre,
 table,
 hr,
 blockquote,
+figure,
+details,
 fieldset,
 address {
     margin: 0 0 1.4em 0; /* bottom margin = line-height */
@@ -175,7 +185,6 @@ table {
 caption {
     caption-side: top;
     text-align: left;
-    margin: 0 0 .3em;
 }
 [dir=rtl] caption {
     text-align: right;
@@ -187,16 +196,15 @@ td {
     margin: 0;
     vertical-align: top;
     border: 1px solid __border__;
-    text-align: left;
-}
-[dir=rtl] td,
-[dir=rtl] th {
-    text-align: right;
 }
 th {
     font-weight: bold;
     background-color: __background_alt__;
     color: inherit;
+    text-align: left;
+}
+[dir=rtl] th {
+    text-align: right;
 }
 
 
@@ -239,8 +247,17 @@ img {
 }
 
 img,
-object {
+object,
+embed,
+iframe,
+video,
+audio {
     max-width: 100%;
+}
+
+iframe {
+    border-width: 0;
+    background-color: inherit;
 }
 
 /* IE8 and below won't display the images otherwise */
@@ -259,9 +276,21 @@ hr {
 
 acronym,
 abbr {
+    font-style: normal;
+}
+acronym[title],
+abbr[title] {
     cursor: help;
     border-bottom: 1px dotted;
-    font-style: normal;
+}
+em acronym,
+em abbr {
+    font-style: italic;
+}
+
+mark {
+    background: __highlight__;
+    color: inherit;
 }
 
 pre,
@@ -308,6 +337,10 @@ sup {
     vertical-align: super;
 }
 
+small {
+    font-size: .8em;
+}
+
 /*____________ forms ____________*/
 
 form {
@@ -317,11 +350,14 @@ form {
 }
 
 fieldset {
-    padding: 1em 1em 0;
-    border: 1px solid __text_alt__;
+    padding: .7em 1em 0;
+    padding: .7rem 1rem; /* for those browsers understanding :last-child */
+    border: 1px solid #999;
+}
+fieldset > :last-child {
+    margin-bottom: 0;
 }
 legend {
-    margin: 0;
     padding: 0 .1em;
 }
 
@@ -335,30 +371,44 @@ textarea,
 button,
 select,
 optgroup,
-option {
+option,
+keygen,
+output,
+meter,
+progress {
     font: inherit;
     color: inherit;
     /* background-color destroys button look */
-    line-height: 1;
+    line-height: normal;
     margin: 0;
     vertical-align: middle;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
-input[type=text],
-input[type=password],
+input,
+button,
+select,
+keygen,
 textarea {
     padding: .1em;
 }
 input[type=radio],
 input[type=checkbox],
+input[type=image],
 input.check {
     padding: 0;
 }
 
 input[type=submit],
+input[type=button],
+input[type=reset],
 input.button,
 button {
     cursor: pointer;
+    overflow: visible;
+    padding: .1em .4em;
 }
 #IE6 .dokuwiki input.button,
 #IE6 .dokuwiki button,
@@ -372,6 +422,20 @@ button[disabled],
 input[readonly],
 button[readonly] {
     cursor: auto;
+}
+
+input:focus,
+button:focus,
+select:focus,
+keygen:focus,
+textarea:focus {
+    box-shadow: 0 0 5px #999;
+    outline: 0;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
 }
 
 optgroup {
@@ -390,4 +454,19 @@ div.clearer {
     /* additional to what's already in DokuWiki's lib/styles/all.css: */
     font-size: 1px;
     visibility: hidden;
+}
+
+/* @deprecated: has been in lib/styles/screen.css since Angua */
+.a11y {
+    position: absolute;
+    left: -99999em;
+    top: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    display: inline;
+}
+[dir=rtl] .a11y {
+    left: auto;
+    right: -99999em;
 }
