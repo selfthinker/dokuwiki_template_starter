@@ -9,6 +9,7 @@
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+header('X-UA-Compatible: IE=edge,chrome=1');
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER['REMOTE_USER'] );
 $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
@@ -17,7 +18,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
   lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
     <meta charset="UTF-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
     <?php tpl_metaheaders() ?>

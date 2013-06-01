@@ -10,13 +10,13 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+header('X-UA-Compatible: IE=edge,chrome=1');
 
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang']?>"
  lang="<?php echo $conf['lang']?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
     <meta charset="UTF-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>
         <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?>
         [<?php echo strip_tags($conf['title'])?>]
