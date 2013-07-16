@@ -29,7 +29,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 
 <body>
-    <!--[if IE 6 ]><div id="IE6"><![endif]--><!--[if IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
     <div id="dokuwiki__detail" class="dokuwiki">
         <?php html_msgarea() ?>
 
@@ -92,7 +92,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
         <?php } ?>
     </div>
-    <!--[if ( IE 6 | IE 7 | IE 8 ) ]></div><![endif]-->
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
 </body>
 </html>
 
