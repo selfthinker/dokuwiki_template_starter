@@ -32,11 +32,10 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
 
     <?php /* the "dokuwiki__top" id is needed somewhere at the top, because that's where the "back to top" button/link links to */ ?>
-    <?php /* classes mode_<action> are added to make it possible to e.g. style a page differently if it's in edit mode,
-         see http://www.dokuwiki.org/devel:action_modes for a list of action modes */ ?>
-    <?php /* .dokuwiki should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
-    <div id="dokuwiki__site"><div id="dokuwiki__top"
-        class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'hasSidebar' : '' ?>">
+    <?php /* tpl_classes() provides useful CSS classes; if you choose not to use it, the 'dokuwiki' class at least
+             should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
+        echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
         <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
         <?php tpl_includeFile('header.html') ?>
 
