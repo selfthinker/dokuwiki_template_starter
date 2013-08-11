@@ -30,7 +30,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
 <body>
     <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
-    <div id="dokuwiki__detail" class="dokuwiki">
+    <div id="dokuwiki__detail" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
 
         <?php if($ERROR){ print $ERROR; }else{ ?>

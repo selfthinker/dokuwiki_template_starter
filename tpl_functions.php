@@ -247,9 +247,28 @@ if (!function_exists('tpl_incdir')) {
 /**
  * does *not* emulate the core function, but returns only
  * if sidebar is set to make it roughly backwards compatible
+ * (available since Adora Belle)
  */
 if (!function_exists('page_findnearest')) {
     function page_findnearest($sidebar){
         return $sidebar;
+    }
+}
+
+/**
+ * copied from core (will be available in autumn 2013 release)
+ */
+if (!function_exists('tpl_classes')) {
+    function tpl_classes() {
+        global $ACT, $conf, $ID, $INFO;
+        $classes = array(
+            'dokuwiki',
+            'mode_'.$ACT,
+            'tpl_'.$conf['template'],
+            $_SERVER['REMOTE_USER'] ? 'loggedIn' : '',
+            $INFO['exists'] ? '' : 'notFound',
+            ($ID == $conf['start']) ? 'home' : '',
+        );
+        return join(' ', $classes);
     }
 }

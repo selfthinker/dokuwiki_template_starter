@@ -28,7 +28,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
 <body>
     <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
-    <div id="media__manager" class="dokuwiki">
+    <div id="media__manager" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
         <div id="mediamgr__aside"><div class="pad">
             <h1><?php echo hsc($lang['mediaselect'])?></h1>
