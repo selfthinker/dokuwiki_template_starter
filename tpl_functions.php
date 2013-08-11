@@ -243,3 +243,13 @@ if (!function_exists('tpl_incdir')) {
         return DOKU_INC.'lib/tpl/'.$conf['template'].'/';
     }
 }
+
+/**
+ * does *not* emulate the core function, but returns only
+ * if sidebar is set to make it roughly backwards compatible
+ */
+if (!function_exists('page_findnearest')) {
+    function page_findnearest($sidebar){
+        return $sidebar;
+    }
+}
