@@ -81,3 +81,22 @@ function _tpl_action($type, $link=0, $wrapper=0) {
             break;
     }
 }
+
+/**
+ * copied from core
+ * @todo: remove when it's available in stable (autumn 2013)
+ */
+if (!function_exists('tpl_classes')) {
+    function tpl_classes() {
+        global $ACT, $conf, $ID, $INFO;
+        $classes = array(
+            'dokuwiki',
+            'mode_'.$ACT,
+            'tpl_'.$conf['template'],
+            $_SERVER['REMOTE_USER'] ? 'loggedIn' : '',
+            $INFO['exists'] ? '' : 'notFound',
+            ($ID == $conf['start']) ? 'home' : '',
+        );
+        return join(' ', $classes);
+    }
+}
