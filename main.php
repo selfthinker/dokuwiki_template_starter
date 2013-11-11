@@ -11,7 +11,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
-$showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER['REMOTE_USER'] );
+$showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) );
 $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang'] ?>"
@@ -65,7 +65,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                         <ul>
                             <?php /* the optional second parameter of tpl_action() switches between a link and a button,
                                      e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
-                                if ($_SERVER['REMOTE_USER']) {
+                                if (!empty($_SERVER['REMOTE_USER'])) {
                                     echo '<li class="user">';
                                     tpl_userinfo(); /* 'Logged in as ...' */
                                     echo '</li>';

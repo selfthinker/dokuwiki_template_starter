@@ -47,7 +47,7 @@ function _tpl_discussion($discussionPage, $title, $backTitle, $link=0, $wrapper=
  * @author Anika Henke <anika@selfthinker.org>
  */
 function _tpl_userpage($userPage, $title, $link=0, $wrapper=0) {
-    if (!$_SERVER['REMOTE_USER']) return;
+    if (empty($_SERVER['REMOTE_USER'])) return;
 
     global $conf;
     $userPage = str_replace('@USER@', $_SERVER['REMOTE_USER'], $userPage);
@@ -93,7 +93,7 @@ if (!function_exists('tpl_classes')) {
             'dokuwiki',
             'mode_'.$ACT,
             'tpl_'.$conf['template'],
-            $_SERVER['REMOTE_USER'] ? 'loggedIn' : '',
+            !empty($_SERVER['REMOTE_USER']) ? 'loggedIn' : '',
             $INFO['exists'] ? '' : 'notFound',
             ($ID == $conf['start']) ? 'home' : '',
         );
