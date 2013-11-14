@@ -88,10 +88,6 @@
     text-decoration: underline;
 }
 
-/* for code in <file> */
-.dokuwiki pre.file {
-}
-
 /* filenames for downloadable file and code blocks */
 .dokuwiki dl.code,
 .dokuwiki dl.file {
@@ -119,6 +115,13 @@
 .dokuwiki dl.code dd,
 .dokuwiki dl.file dd {
     margin: 0;
+}
+
+/* for code in <file> */
+.dokuwiki pre.file,
+.dokuwiki dl.file pre,
+.dokuwiki dl.file dt {
+    border-color: __text_neu__;
 }
 
 
