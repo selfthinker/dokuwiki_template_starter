@@ -102,8 +102,7 @@ function _tpl_toolsevent($toolsname, $items, $view='main') {
 }
 
 /**
- * copied from core
- * @todo: remove when it's available in stable (autumn 2013)
+ * copied from core (available since Binky)
  */
 if (!function_exists('tpl_classes')) {
     function tpl_classes() {
