@@ -63,30 +63,6 @@ function _tpl_userpage($userPage, $title, $link=0, $wrapper=0) {
 }
 
 /**
- * Create link/button to register page
- * @deprecated DW versions > 2011-02-20 can use the core function tpl_action('register')
- *
- * @author Anika Henke <anika@selfthinker.org>
- */
-function _tpl_register($link=0, $wrapper=0) {
-    global $conf;
-    global $lang;
-    global $ID;
-    $lang_register = !empty($lang['btn_register']) ? $lang['btn_register'] : $lang['register'];
-
-    if (!empty($_SERVER['REMOTE_USER']) || !$conf['useacl'] || !actionOK('register')) return;
-
-    if ($wrapper) echo "<$wrapper>";
-
-    if ($link)
-        tpl_link(wl($ID, 'do=register'), $lang_register, 'class="action register" rel="nofollow"');
-    else
-        echo html_btn('register', $ID, '', array('do'=>'register'), 'get', 0, $lang_register);
-
-    if ($wrapper) echo "</$wrapper>";
-}
-
-/**
  * Wrapper around custom template actions
  *
  * @author Anika Henke <anika@selfthinker.org>
@@ -109,6 +85,24 @@ function _tpl_action($type, $link=0, $wrapper=0) {
     }
 }
 
+/**
+ * Create event for tools menues
+ *
+ * @author Anika Henke <anika@selfthinker.org>
+ */
+function _tpl_toolsevent($toolsname, $items, $view='main') {
+    $data = array(
+        'view'  => $view,
+        'items' => $items
+    );
+
+    $hook = 'TEMPLATE_'.strtoupper($toolsname).'_DISPLAY';
+    $evt = new Doku_Event($hook, $data);
+    if($evt->advise_before()){
+        foreach($evt->data['items'] as $k => $html) echo $html;
+    }
+    $evt->advise_after();
+}
 
 
 /* fallbacks for things missing in older DokuWiki versions
@@ -281,4 +275,28 @@ if (!function_exists('tpl_classes')) {
         );
         return join(' ', $classes);
     }
+}
+
+/**
+ * Create link/button to register page
+ * @deprecated DW versions > 2011-02-20 can use the core function tpl_action('register')
+ *
+ * @author Anika Henke <anika@selfthinker.org>
+ */
+function _tpl_register($link=0, $wrapper=0) {
+    global $conf;
+    global $lang;
+    global $ID;
+    $lang_register = !empty($lang['btn_register']) ? $lang['btn_register'] : $lang['register'];
+
+    if (!empty($_SERVER['REMOTE_USER']) || !$conf['useacl'] || !actionOK('register')) return;
+
+    if ($wrapper) echo "<$wrapper>";
+
+    if ($link)
+        tpl_link(wl($ID, 'do=register'), $lang_register, 'class="action register" rel="nofollow"');
+    else
+        echo html_btn('register', $ID, '', array('do'=>'register'), 'get', 0, $lang_register);
+
+    if ($wrapper) echo "</$wrapper>";
 }
