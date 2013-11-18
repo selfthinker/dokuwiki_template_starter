@@ -63,19 +63,23 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <div id="dokuwiki__usertools">
                         <h3 class="a11y"><?php echo $lang['user_tools'] ?></h3>
                         <ul>
-                            <?php /* the optional second parameter of tpl_action() switches between a link and a button,
-                                     e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
+                            <?php
                                 if (!empty($_SERVER['REMOTE_USER'])) {
                                     echo '<li class="user">';
                                     tpl_userinfo(); /* 'Logged in as ...' */
                                     echo '</li>';
                                 }
-                                tpl_action('admin', 1, 'li');
-                                _tpl_action('userpage', 1, 'li');
-                                tpl_action('profile', 1, 'li');
-                                tpl_action('register', 1, 'li');
-                                tpl_action('login', 1, 'li');
                             ?>
+                            <?php /* the optional second parameter of tpl_action() switches between a link and a button,
+                                     e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
+                            ?>
+                            <?php _tpl_toolsevent('usertools', array(
+                                'admin'     => tpl_action('admin', 1, 'li', 1),
+                                'userpage'  => _tpl_action('userpage', 1, 'li', 1),
+                                'profile'   => tpl_action('profile', 1, 'li', 1),
+                                'register'  => tpl_action('register', 1, 'li', 1),
+                                'login'     => tpl_action('login', 1, 'li', 1),
+                            )); ?>
                         </ul>
                     </div>
                 <?php endif ?>
@@ -85,11 +89,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <h3 class="a11y"><?php echo $lang['site_tools'] ?></h3>
                     <?php tpl_searchform() ?>
                     <ul>
-                        <?php
-                            tpl_action('recent', 1, 'li');
-                            tpl_action('media', 1, 'li');
-                            tpl_action('index', 1, 'li');
-                        ?>
+                        <?php _tpl_toolsevent('sitetools', array(
+                            'recent'    => tpl_action('recent', 1, 'li', 1),
+                            'media'     => tpl_action('media', 1, 'li', 1),
+                            'index'     => tpl_action('index', 1, 'li', 1),
+                        )); ?>
                     </ul>
                 </div>
 
@@ -145,15 +149,15 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <div id="dokuwiki__pagetools">
                     <h3 class="a11y"><?php echo $lang['page_tools'] ?></h3>
                     <ul>
-                        <?php
-                            tpl_action('edit', 1, 'li');
-                            _tpl_action('discussion', 1, 'li');
-                            tpl_action('revisions', 1, 'li');
-                            tpl_action('backlink', 1, 'li');
-                            tpl_action('subscribe', 1, 'li');
-                            tpl_action('revert', 1, 'li');
-                            tpl_action('top', 1, 'li');
-                        ?>
+                        <?php _tpl_toolsevent('pagetools', array(
+                            'edit'      => tpl_action('edit', 1, 'li', 1),
+                            'discussion'=> _tpl_action('discussion', 1, 'li', 1),
+                            'revisions' => tpl_action('revisions', 1, 'li', 1),
+                            'backlink'  => tpl_action('backlink', 1, 'li', 1),
+                            'subscribe' => tpl_action('subscribe', 1, 'li', 1),
+                            'revert'    => tpl_action('revert', 1, 'li', 1),
+                            'top'       => tpl_action('top', 1, 'li', 1),
+                        )); ?>
                     </ul>
                 </div>
             <?php endif; ?>

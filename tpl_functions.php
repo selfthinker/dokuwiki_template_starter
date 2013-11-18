@@ -83,6 +83,25 @@ function _tpl_action($type, $link=0, $wrapper=0) {
 }
 
 /**
+ * Create event for tools menues
+ *
+ * @author Anika Henke <anika@selfthinker.org>
+ */
+function _tpl_toolsevent($toolsname, $items, $view='main') {
+    $data = array(
+        'view'  => $view,
+        'items' => $items
+    );
+
+    $hook = 'TEMPLATE_'.strtoupper($toolsname).'_DISPLAY';
+    $evt = new Doku_Event($hook, $data);
+    if($evt->advise_before()){
+        foreach($evt->data['items'] as $k => $html) echo $html;
+    }
+    $evt->advise_after();
+}
+
+/**
  * copied from core
  * @todo: remove when it's available in stable (autumn 2013)
  */
