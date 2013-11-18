@@ -245,6 +245,16 @@ if (!function_exists('tpl_incdir')) {
 }
 
 /**
+ * copied from core (available since Adora Belle)
+ */
+if (!function_exists('tpl_basedir')) {
+    function tpl_basedir() {
+        global $conf;
+        return DOKU_BASE.'lib/tpl/'.$conf['template'].'/';
+    }
+}
+
+/**
  * does *not* emulate the core function, but returns only
  * if sidebar is set to make it roughly backwards compatible
  * (available since Adora Belle)
