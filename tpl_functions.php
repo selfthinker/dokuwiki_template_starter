@@ -260,7 +260,7 @@ if (!function_exists('page_findnearest')) {
 }
 
 /**
- * copied from core (will be available in autumn 2013 release)
+ * copied from core (available since Binky)
  */
 if (!function_exists('tpl_classes')) {
     function tpl_classes() {
