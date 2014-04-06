@@ -117,7 +117,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
             <!-- ********** ASIDE ********** -->
             <?php if ($showSidebar): ?>
-                <div id="dokuwiki__aside"><div class="pad include">
+                <div id="dokuwiki__aside"><div class="pad aside include group">
                     <?php tpl_includeFile('sidebarheader.html') ?>
                     <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
                     <?php tpl_includeFile('sidebarfooter.html') ?>
