@@ -22,7 +22,7 @@ function _tpl_discussion($discussionPage, $title, $backTitle, $link=0, $wrapper=
     $discussPage    = str_replace('@ID@', $ID, $discussionPage);
     $discussPageRaw = str_replace('@ID@', '', $discussionPage);
     $isDiscussPage  = strpos($ID, $discussPageRaw) !== false;
-    $backID         = str_replace($discussPageRaw, '', $ID);
+    $backID         = ':'.str_replace($discussPageRaw, '', $ID);
 
     if ($wrapper) echo "<$wrapper>";
 
