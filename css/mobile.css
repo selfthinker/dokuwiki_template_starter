@@ -1,7 +1,5 @@
 /**
  * This file provides style changes for small screens.
- *
- * @author Anika Henke <anika@selfthinker.org>
  */
 
 @media only screen and (max-width: 42em) {
@@ -11,7 +9,7 @@
     float: none;
     margin-bottom: 1.4em;
 }
-#dokuwiki__aside > .pad {
+#dokuwiki__aside > div {
     margin: 0;
 }
 
@@ -20,65 +18,32 @@
     margin-left: 0;
     margin-right: 0;
 }
-.hasSidebar #dokuwiki__content > .pad {
+.hasSidebar #dokuwiki__content > div {
     margin-left: 0;
 }
-[dir=rtl] .hasSidebar #dokuwiki__content > .pad {
+[dir=rtl] .hasSidebar #dokuwiki__content > div {
     margin-right: 0;
 }
 
-#dokuwiki__header .headings {
-    margin: 2.1em 0 0;
-}
-
-#dokuwiki__header .tools {
-    margin-bottom: .7em;
-}
-
-#dokuwiki__header .headings,
-#dokuwiki__header .tools,
-#dokuwiki__header .tools li {
-    float: none;
-    text-align: left;
-}
-[dir=rtl] #dokuwiki__header .tools,
-[dir=rtl] #dokuwiki__header .tools li {
-    float: none;
-    text-align: right;
-}
-[dir=rtl] #dokuwiki__header .headings {
-    float: none;
-    text-align: right;
-}
-
-#dokuwiki__sitetools ul {
-    padding: 0;
-}
-#dokuwiki__sitetools li {
-    margin: 0 1.5em 0 0;
-}
-[dir=rtl] #dokuwiki__sitetools li {
-    margin: 0 0 0 1.5em;
-}
-
-#dokuwiki__header div.breadcrumbs {
-    margin-bottom: .7em;
-}
-
-
-#dokuwiki__header ul.a11y.skip {
+#dokuwiki__header .a11y.skip,
+#dokuwiki__aside hr.a11y {
     left: auto !important;
-    right: 1em !important;
-    top: 3.1em !important;
+    top: auto !important;
     width: auto !important;
     height: auto !important;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    position: static !important;
 }
-[dir=rtl] #dokuwiki__header ul.a11y.skip {
+[dir=rtl] #dokuwiki__header .a11y.skip,
+[dir=rtl] #dokuwiki__aside hr.a11y {
     right: auto !important;
     left: 1em !important;
+}
+
+.tools {
+    text-align: left;
+}
+[dir=rtl] .tools {
+    text-align: right;
 }
 
 

@@ -7,7 +7,7 @@
  */
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
-@require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+@require_once(dirname(__FILE__).'/tpl_functions.php');
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 ?><!DOCTYPE html>
@@ -27,10 +27,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 
 <body>
-    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
     <div id="media__manager" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
-        <div id="mediamgr__aside"><div class="pad">
+        <div id="mediamgr__aside"><div class="group">
             <h1><?php echo hsc($lang['mediaselect'])?></h1>
 
             <?php /* keep the id! additional elements are inserted via JS here */?>
@@ -39,10 +38,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <?php tpl_mediaTree() ?>
         </div></div>
 
-        <div id="mediamgr__content"><div class="pad">
+        <div id="mediamgr__content"><div class="group">
             <?php tpl_mediaContent() ?>
         </div></div>
     </div>
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
 </body>
 </html>

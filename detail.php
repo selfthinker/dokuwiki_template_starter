@@ -9,7 +9,7 @@
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
-@require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+@require_once(dirname(__FILE__).'/tpl_functions.php');
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 ?><!DOCTYPE html>
@@ -29,7 +29,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 
 <body>
-    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
     <div id="dokuwiki__detail" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
 
@@ -39,7 +38,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
 
             <div class="content">
-                <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
+                <?php tpl_img(900, 700); ?>
 
                 <div class="img_detail">
                     <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
@@ -57,6 +56,5 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
         <?php endif; ?>
     </div>
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
 </body>
 </html>
