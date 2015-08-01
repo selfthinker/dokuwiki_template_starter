@@ -38,9 +38,6 @@ body {
 #dokuwiki__site .wrapper {
     position: relative;
 }
-#IE7 #dokuwiki__site .wrapper {
-    height: 1%;
-}
 
     #dokuwiki__aside {
         width: __sidebar_width__;

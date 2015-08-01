@@ -13,9 +13,6 @@
 #dokuwiki__header {
     margin: 1em 0 0;
 }
-#IE7 #dokuwiki__header {
-    margin-top: 2em;
-}
 
 #dokuwiki__header .headings {
     margin-bottom: 2.1em;
@@ -150,18 +147,6 @@
 [dir=rtl] #dokuwiki__pagetools ul li a.action.top {
     float: left;
 }
-#IE7 #dokuwiki__pagetools ul {
-    position: relative;
-}
-#IE7 #dokuwiki__pagetools ul li a.action.top {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-[dir=rtl] #IE7 #dokuwiki__pagetools ul li a.action.top {
-    right: auto;
-    left: 0;
-}
 
 
 /* sidebar
@@ -245,9 +230,6 @@
 
 #dokuwiki__footer {
     margin-bottom: 1em;
-}
-#IE7 #dokuwiki__footer {
-    height: 1%;
 }
 
 #dokuwiki__footer .doc {

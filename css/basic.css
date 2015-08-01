@@ -261,7 +261,6 @@ iframe {
 }
 
 /* IE8 and below won't display the images otherwise */
-#IE7 img,
 #IE8 img,
 button img {
     max-width: none;
@@ -411,10 +410,6 @@ button {
     cursor: pointer;
     overflow: visible;
     padding: .1em .4em;
-}
-#IE7 .dokuwiki input.button,
-#IE7 .dokuwiki button {
-    line-height: 1.4;
 }
 
 input[disabled],

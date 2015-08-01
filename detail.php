@@ -29,7 +29,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 
 <body>
-    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <!--[if lte IE 8 ]><div id="IE8"><![endif]-->
     <div id="dokuwiki__detail" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
 
@@ -91,6 +91,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
         <?php endif; ?>
     </div>
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+    <!--[if lte IE 8 ]></div><![endif]-->
 </body>
 </html>
