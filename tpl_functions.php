@@ -83,22 +83,22 @@ function _tpl_action($type, $link=0, $wrapper=0) {
 }
 
 /**
- * Create event for tools menues
- *
- * @author Anika Henke <anika@selfthinker.org>
+ * copied to core (available since Detritus)
  */
-function _tpl_toolsevent($toolsname, $items, $view='main') {
-    $data = array(
-        'view'  => $view,
-        'items' => $items
-    );
+if (!function_exists('tpl_toolsevent')) {
+    function tpl_toolsevent($toolsname, $items, $view='main') {
+        $data = array(
+            'view'  => $view,
+            'items' => $items
+        );
 
-    $hook = 'TEMPLATE_'.strtoupper($toolsname).'_DISPLAY';
-    $evt = new Doku_Event($hook, $data);
-    if($evt->advise_before()){
-        foreach($evt->data['items'] as $k => $html) echo $html;
+        $hook = 'TEMPLATE_'.strtoupper($toolsname).'_DISPLAY';
+        $evt = new Doku_Event($hook, $data);
+        if($evt->advise_before()){
+            foreach($evt->data['items'] as $k => $html) echo $html;
+        }
+        $evt->advise_after();
     }
-    $evt->advise_after();
 }
 
 /**
