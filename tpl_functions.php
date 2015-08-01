@@ -16,29 +16,40 @@ if (!defined('DOKU_INC')) die();
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_discussion($discussionPage, $title, $backTitle, $link=0, $wrapper=0) {
+function _tpl_discussion($discussionPage, $title, $backTitle, $link=0, $wrapper=0, $return=0) {
     global $ID;
+    $output = '';
 
     $discussPage    = str_replace('@ID@', $ID, $discussionPage);
     $discussPageRaw = str_replace('@ID@', '', $discussionPage);
     $isDiscussPage  = strpos($ID, $discussPageRaw) !== false;
     $backID         = ':'.str_replace($discussPageRaw, '', $ID);
 
-    if ($wrapper) echo "<$wrapper>";
+    if ($wrapper) $output .= "<$wrapper>";
 
     if ($isDiscussPage) {
-        if ($link)
+        if ($link) {
+            ob_start();
             tpl_pagelink($backID, $backTitle);
-        else
-            echo html_btn('back2article', $backID, '', array(), 'get', 0, $backTitle);
+            $output .= ob_get_contents();
+            ob_end_clean();
+        } else {
+            $output .= html_btn('back2article', $backID, '', array(), 'get', 0, $backTitle);
+        }
     } else {
-        if ($link)
+        if ($link) {
+            ob_start();
             tpl_pagelink($discussPage, $title);
-        else
-            echo html_btn('discussion', $discussPage, '', array(), 'get', 0, $title);
+            $output .= ob_get_contents();
+            ob_end_clean();
+        } else {
+            $output .= html_btn('discussion', $discussPage, '', array(), 'get', 0, $title);
+        }
     }
 
-    if ($wrapper) echo "</$wrapper>";
+    if ($wrapper) $output .= "</$wrapper>";
+    if ($return) return $output;
+    echo $output;
 }
 
 /**
@@ -46,20 +57,27 @@ function _tpl_discussion($discussionPage, $title, $backTitle, $link=0, $wrapper=
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_userpage($userPage, $title, $link=0, $wrapper=0) {
+function _tpl_userpage($userPage, $title, $link=0, $wrapper=0, $return=0) {
     if (empty($_SERVER['REMOTE_USER'])) return;
 
     global $conf;
+    $output = '';
     $userPage = str_replace('@USER@', $_SERVER['REMOTE_USER'], $userPage);
 
-    if ($wrapper) echo "<$wrapper>";
+    if ($wrapper) $output .= "<$wrapper>";
 
-    if ($link)
+    if ($link) {
+        ob_start();
         tpl_pagelink($userPage, $title);
-    else
-        echo html_btn('userpage', $userPage, '', array(), 'get', 0, $title);
+        $output .= ob_get_contents();
+        ob_end_clean();
+    } else {
+        $output .= html_btn('userpage', $userPage, '', array(), 'get', 0, $title);
+    }
 
-    if ($wrapper) echo "</$wrapper>";
+    if ($wrapper) $output .= "</$wrapper>";
+    if ($return) return $output;
+    echo $output;
 }
 
 /**
@@ -67,16 +85,20 @@ function _tpl_userpage($userPage, $title, $link=0, $wrapper=0) {
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
-function _tpl_action($type, $link=0, $wrapper=0) {
+function _tpl_action($type, $link=0, $wrapper=0, $return=0) {
     switch ($type) {
         case 'discussion':
             if (tpl_getConf('discussionPage')) {
-                _tpl_discussion(tpl_getConf('discussionPage'), tpl_getLang('discussion'), tpl_getLang('back_to_article'), $link, $wrapper);
+                $output = _tpl_discussion(tpl_getConf('discussionPage'), tpl_getLang('discussion'), tpl_getLang('back_to_article'), $link, $wrapper, 1);
+                if ($return) return $output;
+                echo $output;
             }
             break;
         case 'userpage':
             if (tpl_getConf('userPage')) {
-                _tpl_userpage(tpl_getConf('userPage'), tpl_getLang('userpage'), $link, $wrapper);
+                $output = _tpl_userpage(tpl_getConf('userPage'), tpl_getLang('userpage'), $link, $wrapper, 1);
+                if ($return) return $output;
+                echo $output;
             }
             break;
     }
