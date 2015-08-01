@@ -38,7 +38,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <?php if($REV) echo p_locale_xhtml('showrev');?>
             <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
 
-            <div class="content">
+            <div class="content group">
                 <?php tpl_img(900, 700); ?>
 
                 <div class="img_detail">
@@ -80,7 +80,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <?php endif; ?>
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
                 </div>
-                <div class="clearer"></div>
             </div><!-- /.content -->
 
             <p class="back">
