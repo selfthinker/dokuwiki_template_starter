@@ -93,7 +93,7 @@ $showSidebar = page_findnearest($conf['sidebar']);
                     <h3><?php echo $lang['site_tools'] ?></h3>
                     <?php tpl_searchform() ?>
                     <ul>
-                        <?php _tpl_toolsevent('sitetools', array(
+                        <?php tpl_toolsevent('sitetools', array(
                             'recent'    => tpl_action('recent', 1, 'li', 1),
                             'media'     => tpl_action('media', 1, 'li', 1),
                             'index'     => tpl_action('index', 1, 'li', 1),
@@ -105,7 +105,7 @@ $showSidebar = page_findnearest($conf['sidebar']);
                 <div id="dokuwiki__pagetools">
                     <h3><?php echo $lang['page_tools'] ?></h3>
                     <ul>
-                        <?php _tpl_toolsevent('pagetools', array(
+                        <?php tpl_toolsevent('pagetools', array(
                             'edit'      => tpl_action('edit', 1, 'li', 1),
                             'revisions' => tpl_action('revisions', 1, 'li', 1),
                             'backlink'  => tpl_action('backlink', 1, 'li', 1),
@@ -128,7 +128,7 @@ $showSidebar = page_findnearest($conf['sidebar']);
                                     echo '</li>';
                                 }
                             ?>
-                            <?php _tpl_toolsevent('usertools', array(
+                            <?php tpl_toolsevent('usertools', array(
                                 'admin'     => tpl_action('admin', 1, 'li', 1),
                                 'profile'   => tpl_action('profile', 1, 'li', 1),
                                 'register'  => tpl_action('register', 1, 'li', 1),
