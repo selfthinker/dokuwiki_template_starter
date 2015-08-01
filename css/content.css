@@ -142,6 +142,12 @@
     padding: 0.125em 0.4em;
 }
 
+/*____________ styling plugin ____________*/
+
+#plugin__styling.ispopup {
+    padding: 1em;
+}
+
 
 /*____________ JS popup ____________*/
 
