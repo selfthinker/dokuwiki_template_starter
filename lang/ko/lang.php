@@ -1,12 +1,13 @@
 <?php
 /**
- * Korean language file
+ * Korean language file for template
  *
- * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
-$lang['discussion']   = '토론';
-$lang['back_to_article'] = '위로 기사';
-$lang['userpage']       = '사용자 문서';
-
-//Setup VIM: ex: et ts=2 :
+$lang['discussion']        = '토론';
+$lang['back_to_article']   = '문서로 돌아가기';
+$lang['userpage']          = '사용자 문서';
+$lang['__existing__']      = '문서가 존재하는 링크의 색';
+$lang['__missing__']       = '문서가 존재하지 않는 링크의 색';
+$lang['__site_width__']    = '전체 사이트의 너비 (어떠한 길이 단위도 사용할 수 있습니다: %, px, em, ...)';
+$lang['__sidebar_width__'] = '사이드바가 있다면, 그것의 너비 (어떠한 길이 단위도 사용할 수 있습니다: %, px, em, ...)';
