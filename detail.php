@@ -80,11 +80,9 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div><!-- /.content -->
 
-            <p class="back">
-                <?php tpl_action('mediaManager', 1) ?><br />
-                &larr; <?php tpl_action('img_backto', 1) ?>
-            </p>
-
+            <ul>
+                <?php echo (new \dokuwiki\Menu\DetailMenu())->getListItems('action ', false); ?>
+            </ul>
         <?php endif; ?>
     </div>
 </body>

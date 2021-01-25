@@ -84,19 +84,17 @@ $showSidebar = page_findnearest($conf['sidebar']);
         <!-- ********** FOOTER ********** -->
         <div id="dokuwiki__footer">
 
-                <hr />
-                <div class="doc"><?php tpl_pageinfo() ?></div>
+            <hr />
+            <div class="doc"><?php tpl_pageinfo() ?></div>
+
             <div class="tools">
                 <!-- SITE TOOLS -->
                 <div id="dokuwiki__sitetools">
                     <h3><?php echo $lang['site_tools'] ?></h3>
                     <?php tpl_searchform() ?>
+                    <?php // echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                     <ul>
-                        <?php tpl_toolsevent('sitetools', array(
-                            'recent'    => tpl_action('recent', 1, 'li', 1),
-                            'media'     => tpl_action('media', 1, 'li', 1),
-                            'index'     => tpl_action('index', 1, 'li', 1),
-                        )); ?>
+                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
                     </ul>
                 </div>
 
@@ -104,14 +102,7 @@ $showSidebar = page_findnearest($conf['sidebar']);
                 <div id="dokuwiki__pagetools">
                     <h3><?php echo $lang['page_tools'] ?></h3>
                     <ul>
-                        <?php tpl_toolsevent('pagetools', array(
-                            'edit'      => tpl_action('edit', 1, 'li', 1),
-                            'revisions' => tpl_action('revisions', 1, 'li', 1),
-                            'backlink'  => tpl_action('backlink', 1, 'li', 1),
-                            'subscribe' => tpl_action('subscribe', 1, 'li', 1),
-                            'revert'    => tpl_action('revert', 1, 'li', 1),
-                            'top'       => tpl_action('top', 1, 'li', 1),
-                        )); ?>
+                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems('action ', false); ?>
                     </ul>
                 </div>
 
@@ -127,12 +118,7 @@ $showSidebar = page_findnearest($conf['sidebar']);
                                     echo '</li>';
                                 }
                             ?>
-                            <?php tpl_toolsevent('usertools', array(
-                                'admin'     => tpl_action('admin', 1, 'li', 1),
-                                'profile'   => tpl_action('profile', 1, 'li', 1),
-                                'register'  => tpl_action('register', 1, 'li', 1),
-                                'login'     => tpl_action('login', 1, 'li', 1),
-                            )); ?>
+                            <?php echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', false); ?>
                         </ul>
                     </div>
                 <?php endif ?>
