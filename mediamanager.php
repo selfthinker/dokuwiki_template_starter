@@ -27,18 +27,18 @@ if (!defined('DOKU_INC')) die();
 <body>
     <div id="media__manager" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
-        <div id="mediamgr__aside"><div class="group">
+        <nav id="mediamgr__aside"><div class="group">
             <h1><?php echo hsc($lang['mediaselect'])?></h1>
 
             <?php /* keep the id! additional elements are inserted via JS here */?>
             <div id="media__opts"></div>
 
             <?php tpl_mediaTree() ?>
-        </div></div>
+        </div></nav>
 
-        <div id="mediamgr__content"><div class="group">
+        <main id="mediamgr__content"><div class="group">
             <?php tpl_mediaContent() ?>
-        </div></div>
+        </div></main>
     </div>
 </body>
 </html>

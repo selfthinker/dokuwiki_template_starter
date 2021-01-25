@@ -26,10 +26,10 @@ $showSidebar = page_findnearest($conf['sidebar']);
 <body id="dokuwiki__top">
     <div id="dokuwiki__site" class="<?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'hasSidebar' : ''; ?>">
         <?php html_msgarea() ?>
-        <?php tpl_includeFile('header.html') ?>
 
         <!-- ********** HEADER ********** -->
-        <div id="dokuwiki__header"><div class="group">
+        <header id="dokuwiki__header"><div class="group">
+            <?php tpl_includeFile('header.html') ?>
 
             <h1><?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"') ?></h1>
             <?php if ($conf['tagline']): ?>
@@ -49,23 +49,23 @@ $showSidebar = page_findnearest($conf['sidebar']);
             <?php } ?>
 
             <hr />
-        </div></div><!-- /header -->
+        </div></header><!-- /header -->
 
 
         <div class="wrapper group">
 
             <!-- ********** ASIDE ********** -->
             <?php if ($showSidebar): ?>
-                <div id="dokuwiki__aside"><div class="aside include group">
+                <nav id="dokuwiki__aside" aria-label="<?php echo $lang['sidebar'] ?>"><div class="aside include group">
                     <?php tpl_includeFile('sidebarheader.html') ?>
                     <?php tpl_include_page($conf['sidebar'], 1, 1) ?>
                     <?php tpl_includeFile('sidebarfooter.html') ?>
                     <hr class="a11y" />
-                </div></div><!-- /aside -->
+                </div></nav><!-- /aside -->
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content"><div class="group">
+            <main id="dokuwiki__content"><div class="group">
                 <?php tpl_flush() ?>
                 <?php tpl_includeFile('pageheader.html') ?>
 
@@ -77,17 +77,18 @@ $showSidebar = page_findnearest($conf['sidebar']);
 
                 <?php tpl_flush() ?>
                 <?php tpl_includeFile('pagefooter.html') ?>
-            </div></div><!-- /content -->
+            </div></main><!-- /content -->
 
         </div><!-- /wrapper -->
 
         <!-- ********** FOOTER ********** -->
-        <div id="dokuwiki__footer">
+        <footer id="dokuwiki__footer">
 
             <hr />
             <div class="doc"><?php tpl_pageinfo() ?></div>
+            <?php tpl_license('button') ?>
 
-            <div class="tools">
+            <nav class="tools" aria-label="<?php echo $lang['tools'] ?>">
                 <!-- SITE TOOLS -->
                 <div id="dokuwiki__sitetools">
                     <h3><?php echo $lang['site_tools'] ?></h3>
@@ -122,12 +123,10 @@ $showSidebar = page_findnearest($conf['sidebar']);
                         </ul>
                     </div>
                 <?php endif ?>
-            </div>
+            </nav>
 
-            <?php tpl_license('button') ?>
-        </div><!-- /footer -->
-
-        <?php tpl_includeFile('footer.html') ?>
+            <?php tpl_includeFile('footer.html') ?>
+        </footer><!-- /footer -->
     </div><!-- /site -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>

@@ -33,10 +33,10 @@ if (!defined('DOKU_INC')) die();
         <?php if($ERROR): print $ERROR; ?>
         <?php else: ?>
 
-            <?php if($REV) echo p_locale_xhtml('showrev');?>
-            <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
+            <main class="content group">
+                <?php if($REV) echo p_locale_xhtml('showrev');?>
+                <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
 
-            <div class="content group">
                 <?php tpl_img(900, 700); ?>
 
                 <div class="img_detail">
@@ -78,11 +78,13 @@ if (!defined('DOKU_INC')) die();
                     <?php endif; ?>
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
                 </div>
-            </div><!-- /.content -->
+            </main><!-- /.content -->
 
-            <ul>
-                <?php echo (new \dokuwiki\Menu\DetailMenu())->getListItems('action ', false); ?>
-            </ul>
+            <nav>
+                <ul>
+                    <?php echo (new \dokuwiki\Menu\DetailMenu())->getListItems('action ', false); ?>
+                </ul>
+            </nav>
         <?php endif; ?>
     </div>
 </body>
