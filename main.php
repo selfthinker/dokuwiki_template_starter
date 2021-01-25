@@ -78,6 +78,14 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <div id="dokuwiki__sitetools">
                     <h3 class="a11y"><?php echo $lang['site_tools'] ?></h3>
                     <?php tpl_searchform() ?>
+                    <?php
+                        // mobile menu (combines all menus in one dropdown)
+                        // if (file_exists(DOKU_INC . 'inc/Menu/MobileMenu.php')) {
+                        //     echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']);
+                        // } else {
+                        //   tpl_actiondropdown($lang['tools']);
+                        // }
+                    ?>
                     <ul>
                         <?php if (file_exists(DOKU_INC . 'inc/Menu/SiteMenu.php')) {
                             echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false);
