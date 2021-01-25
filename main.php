@@ -70,7 +70,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                             ?>
                             <?php tpl_toolsevent('usertools', array(
                                 'admin'     => tpl_action('admin', 1, 'li', 1),
-                                'userpage'  => _tpl_action('userpage', 1, 'li', 1),
                                 'profile'   => tpl_action('profile', 1, 'li', 1),
                                 'register'  => tpl_action('register', 1, 'li', 1),
                                 'login'     => tpl_action('login', 1, 'li', 1),
@@ -146,7 +145,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <ul>
                         <?php tpl_toolsevent('pagetools', array(
                             'edit'      => tpl_action('edit', 1, 'li', 1),
-                            'discussion'=> _tpl_action('discussion', 1, 'li', 1),
                             'revisions' => tpl_action('revisions', 1, 'li', 1),
                             'backlink'  => tpl_action('backlink', 1, 'li', 1),
                             'subscribe' => tpl_action('subscribe', 1, 'li', 1),

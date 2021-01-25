@@ -4,9 +4,7 @@
 *
 * @author Hideaki SAWADA <chuno@live.jp>
 */
-$lang['discussion']        = 'コメント';
-$lang['back_to_article']   = '記事に戻る';
-$lang['userpage']          = 'ユーザーページ';
+
 $lang['__existing__']      = '既存ページへのリンク色';
 $lang['__missing__']       = '存在しないページへのリンク色';
 $lang['__site_width__']    = 'サイトの全体幅（任意の長さの単位を使用可能： % px em 他）';
