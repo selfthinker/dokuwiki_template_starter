@@ -166,6 +166,14 @@
     float: left;
 }
 
+/* hide background images from menu items inserted via plugins */
+#dokuwiki__pagetools ul li a {
+    background-image: none !important;
+}
+#dokuwiki__pagetools ul li a::before {
+    content: none !important;
+}
+
 
 /* sidebar
 ********************************************************************/
