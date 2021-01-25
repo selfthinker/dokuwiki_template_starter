@@ -17,6 +17,10 @@ body {
 
 img {
     border-width: 0;
+}
+
+img,
+video {
     height: auto;
 }
 
