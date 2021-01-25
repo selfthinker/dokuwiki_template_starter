@@ -8,7 +8,6 @@
  */
 
 if (!defined('DOKU_INC')) die();
-@require_once(dirname(__FILE__).'/tpl_functions.php');
 header('X-UA-Compatible: IE=edge,chrome=1');
 $showSidebar = page_findnearest($conf['sidebar']);
 ?><!DOCTYPE html>
