@@ -215,7 +215,7 @@ a {
 a:link,
 a:visited {
     text-decoration: none;
-    color: #00c; /* §colour */
+    color: __link__;
 }
 a:link:hover,
 a:visited:hover,
@@ -231,7 +231,7 @@ a:visited:focus {
 }
 a:link:active,
 a:visited:active {
-    color: #c00; /* §colour */
+    color: #c00;
 }
 
 
