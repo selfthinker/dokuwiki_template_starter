@@ -8,8 +8,8 @@
  */
 
 if (!defined('DOKU_INC')) die();
-header('X-UA-Compatible: IE=edge,chrome=1');
 $showSidebar = page_findnearest($conf['sidebar']);
+
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $conf['lang'] ?>"
   lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
