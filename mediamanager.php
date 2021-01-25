@@ -27,7 +27,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 
 <body>
-    <!--[if IE 8 ]><div id="IE8"><![endif]-->
     <div id="media__manager" class="<?php echo tpl_classes(); ?>">
         <?php html_msgarea() ?>
         <div id="mediamgr__aside"><div class="pad">
@@ -43,6 +42,5 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <?php tpl_mediaContent() ?>
         </div></div>
     </div>
-    <!--[if lte IE 8 ]></div><![endif]-->
 </body>
 </html>

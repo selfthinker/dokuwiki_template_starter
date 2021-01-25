@@ -260,8 +260,6 @@ iframe {
     background-color: inherit;
 }
 
-/* IE8 and below won't display the images otherwise */
-#IE8 img,
 button img {
     max-width: none;
 }

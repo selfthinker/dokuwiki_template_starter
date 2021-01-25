@@ -27,10 +27,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 </head>
 
 <body>
-    <?php /* with these Conditional Comments you can better address IE issues in CSS files,
-             precede CSS rules by #IE8 for IE8 (div closes at the bottom) */ ?>
-    <!--[if lte IE 8 ]><div id="IE8"><![endif]-->
-
     <?php /* the "dokuwiki__top" id is needed somewhere at the top, because that's where the "back to top" button/link links to */ ?>
     <?php /* tpl_classes() provides useful CSS classes; if you choose not to use it, the 'dokuwiki' class at least
              should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
@@ -173,6 +169,5 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     </div></div><!-- /site -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    <!--[if lte IE 8 ]></div><![endif]-->
 </body>
 </html>
