@@ -58,22 +58,18 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <div id="dokuwiki__usertools">
                         <h3 class="a11y"><?php echo $lang['user_tools'] ?></h3>
                         <ul>
-                            <?php
-                                if (!empty($_SERVER['REMOTE_USER'])) {
-                                    echo '<li class="user">';
-                                    tpl_userinfo(); /* 'Logged in as ...' */
-                                    echo '</li>';
-                                }
-                            ?>
-                            <?php /* the optional second parameter of tpl_action() switches between a link and a button,
-                                     e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
-                            ?>
-                            <?php tpl_toolsevent('usertools', array(
-                                'admin'     => tpl_action('admin', 1, 'li', 1),
-                                'profile'   => tpl_action('profile', 1, 'li', 1),
-                                'register'  => tpl_action('register', 1, 'li', 1),
-                                'login'     => tpl_action('login', 1, 'li', 1),
-                            )); ?>
+                            <?php if (!empty($_SERVER['REMOTE_USER'])) {
+                                echo '<li class="user">';
+                                tpl_userinfo(); /* 'Logged in as ...' */
+                                echo '</li>';
+                            } ?>
+                            <?php if (file_exists(DOKU_INC . 'inc/Menu/UserMenu.php')) {
+                                /* the first parameter is for an additional class, the second for if SVGs should be added */
+                                echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', false);
+                            } else {
+                                /* tool menu before Greebo */
+                                _tpl_usertools();
+                            } ?>
                         </ul>
                     </div>
                 <?php endif ?>
@@ -83,11 +79,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <h3 class="a11y"><?php echo $lang['site_tools'] ?></h3>
                     <?php tpl_searchform() ?>
                     <ul>
-                        <?php tpl_toolsevent('sitetools', array(
-                            'recent'    => tpl_action('recent', 1, 'li', 1),
-                            'media'     => tpl_action('media', 1, 'li', 1),
-                            'index'     => tpl_action('index', 1, 'li', 1),
-                        )); ?>
+                        <?php if (file_exists(DOKU_INC . 'inc/Menu/SiteMenu.php')) {
+                            echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false);
+                        } else {
+                            _tpl_sitetools();
+                        } ?>
                     </ul>
                 </div>
 
@@ -143,14 +139,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <div id="dokuwiki__pagetools">
                     <h3 class="a11y"><?php echo $lang['page_tools'] ?></h3>
                     <ul>
-                        <?php tpl_toolsevent('pagetools', array(
-                            'edit'      => tpl_action('edit', 1, 'li', 1),
-                            'revisions' => tpl_action('revisions', 1, 'li', 1),
-                            'backlink'  => tpl_action('backlink', 1, 'li', 1),
-                            'subscribe' => tpl_action('subscribe', 1, 'li', 1),
-                            'revert'    => tpl_action('revert', 1, 'li', 1),
-                            'top'       => tpl_action('top', 1, 'li', 1),
-                        )); ?>
+                        <?php if (file_exists(DOKU_INC . 'inc/Menu/PageMenu.php')) {
+                            echo (new \dokuwiki\Menu\PageMenu())->getListItems('action ', false);
+                        } else {
+                            _tpl_pagetools();
+                        } ?>
                     </ul>
                 </div>
             <?php endif; ?>

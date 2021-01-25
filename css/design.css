@@ -87,6 +87,7 @@
 }
 
 /* highlight selected tool */
+/* before Greebo: */
 .mode_admin a.action.admin,
 .mode_login a.action.login,
 .mode_register a.action.register,
@@ -96,7 +97,18 @@
 .mode_media a.action.media,
 .mode_revisions a.action.revs,
 .mode_backlink a.action.backlink,
-.mode_subscribe a.action.subscribe {
+.mode_subscribe a.action.subscribe,
+/* since Greebo: */
+.mode_admin .action.admin a,
+.mode_login .action.login a,
+.mode_register .action.register a,
+.mode_profile .action.profile a,
+.mode_recent .action.recent a,
+.mode_index .action.index a,
+.mode_media .action.media a,
+.mode_revisions .action.revs a,
+.mode_backlink .action.backlink a,
+.mode_subscribe .action.subscribe a {
     font-weight: bold;
 }
 
@@ -141,10 +153,16 @@
     display: inline;
     margin: 0 1.5em 0 0;
 }
-#dokuwiki__pagetools ul li a.action.top {
+/* before Greebo: */
+#dokuwiki__pagetools ul li a.action.top,
+/* since Greebo: */
+#dokuwiki__pagetools ul li.action.top a {
     float: right;
 }
-[dir=rtl] #dokuwiki__pagetools ul li a.action.top {
+/* before Greebo: */
+[dir=rtl] #dokuwiki__pagetools ul li a.action.top,
+/* since Greebo: */
+[dir=rtl] #dokuwiki__pagetools ul li.action.top a {
     float: left;
 }
 
