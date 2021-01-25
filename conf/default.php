@@ -5,3 +5,4 @@
  */
 
 $conf['hideTools']        = 0;
+$conf['sidebarIsNav']     = 1;

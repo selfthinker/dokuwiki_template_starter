@@ -34,10 +34,10 @@ if (!defined('DOKU_INC')) die();
         <?php if($ERROR): print $ERROR; ?>
         <?php else: ?>
 
-            <?php if($REV) echo p_locale_xhtml('showrev');?>
-            <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
+            <main class="content group">
+                <?php if($REV) echo p_locale_xhtml('showrev');?>
+                <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline', $IMG))?></h1>
 
-            <div class="content group">
                 <?php tpl_img(900, 700); /* the image; parameters: maximum width, maximum height (and more) */ ?>
 
                 <div class="img_detail">
@@ -79,15 +79,17 @@ if (!defined('DOKU_INC')) die();
                     <?php endif; ?>
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw')); ?>
                 </div>
-            </div><!-- /.content -->
+            </main><!-- /.content -->
 
-            <ul>
-                <?php if (file_exists(DOKU_INC . 'inc/Menu/DetailMenu.php')) {
-                    echo (new \dokuwiki\Menu\DetailMenu())->getListItems('action ', false);
-                } else {
-                    _tpl_detailtools();
-                } ?>
-            </ul>
+            <nav>
+                <ul>
+                    <?php if (file_exists(DOKU_INC . 'inc/Menu/DetailMenu.php')) {
+                        echo (new \dokuwiki\Menu\DetailMenu())->getListItems('action ', false);
+                    } else {
+                        _tpl_detailtools();
+                    } ?>
+                </ul>
+            </nav>
 
         <?php endif; ?>
     </div>
