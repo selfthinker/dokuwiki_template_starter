@@ -243,7 +243,6 @@ img {
     color: #666;
     background-color: transparent;
     font-style: italic;
-    height: auto;
 }
 
 img,
@@ -253,6 +252,11 @@ iframe,
 video,
 audio {
     max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
 }
 
 iframe {
@@ -281,6 +285,7 @@ acronym[title],
 abbr[title] {
     cursor: help;
     border-bottom: 1px dotted;
+    text-decoration: none;
 }
 em acronym,
 em abbr {
@@ -338,6 +343,10 @@ sup {
 
 small {
     font-size: .8em;
+}
+
+wbr {
+    display: inline-block;
 }
 
 /*____________ forms ____________*/
