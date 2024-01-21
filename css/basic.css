@@ -15,16 +15,19 @@ body {
     text-size-adjust: 100%;
 }
 
-img {
+img,
+svg {
     border-width: 0;
 }
 
 img,
+svg,
 video {
     height: auto;
 }
 
 img,
+svg,
 object,
 iframe,
 video,
