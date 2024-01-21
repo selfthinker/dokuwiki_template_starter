@@ -81,7 +81,8 @@ dl.file dt {
 }
 
 /* images */
-img {
+img,
+svg {
     border-width: 0;
     vertical-align: middle;
 }
